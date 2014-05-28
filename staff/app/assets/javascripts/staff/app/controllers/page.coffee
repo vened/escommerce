@@ -6,14 +6,15 @@
 
   .controller "PagesIndexCtrl", [
     "$scope"
+    "$rootScope"
     "$routeParams"
     "PagesService"
-    PagesIndexCtrl = ($scope, $routeParams, PagesService) ->
+    PagesIndexCtrl = ($scope, $rootScope, $routeParams, PagesService) ->
+      $rootScope.title = "Список статических страниц"
       PagesService.show
-        pageId: 1
-      , (response) ->
-        $scope.page = response[0]
-        console.log $routeParams
+        pageId: $routeParams.id
+      , (res) ->
+        $scope.pages = res
         return
 
   ]
