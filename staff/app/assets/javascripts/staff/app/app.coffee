@@ -1,38 +1,36 @@
-"use strict"
+(->
+  "use strict"
 
-app = angular.module("staff", [
-  "ngResource"
-  "ngRoute"
-  "RootRoutes"
-  "RootDirectives"
-  "SidebarDirectives"
-  "DashboardController"
-  "PagesController"
-])
-
-app.filter("trustAsHtml", [ "$sce", ($sce) ->
-  return trustAsHtml = (value) ->
-    $sce.trustAsHtml value
-])
+  app = angular.module("staff", [
+    "ngResource"
+    "ngRoute"
+    "RootRoutes"
+    "RootDirectives"
+    "SidebarDirectives"
+    "DashboardController"
+    "PagesController"
+  ])
 
 
-app.factory "PagesService", [
-  "$resource"
-  ($resource) ->
-    return $resource(
-      "/pages/:pageId",
-      pageId: "@id",
-      show  :
-        method : "GET"
-        isArray: true
+  app.factory "PagesService", [
+    "$resource"
+    ($resource) ->
+      return $resource("/staff/pages/:pageId",
+        pageId: "@id"
+      ,
+        show:
+          method : "GET"
+          isArray: true
 
-      edit:
-        method: "PUT"
+        edit:
+          method: "PUT"
 
-      destroy:
-        method: "DELETE"
+        destroy:
+          method: "DELETE"
 
-      create:
-        method: "POST"
-    )
-]
+        create:
+          method: "POST"
+      )
+  ]
+
+  return)()

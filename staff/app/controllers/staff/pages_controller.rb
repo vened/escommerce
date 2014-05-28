@@ -9,5 +9,10 @@ module Staff
       render :json => @pages
     end
 
+    def show
+      @page = Page.find(params[:id])
+      render :json => @page
+    end
+
   end
 end

@@ -1,6 +1,8 @@
 Staff::Engine.routes.draw do
 
+
+  resources :pages
+
   get '/' => 'pages#dashboard'
-  get '/pages' => 'pages#index'
 
 end

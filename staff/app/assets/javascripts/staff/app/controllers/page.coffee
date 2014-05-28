@@ -1,18 +1,21 @@
-"use strict"
+(->
+  "use strict"
 
-controllers = angular.module("PagesController", [])
+  angular.module("PagesController", [])
 
 
-controllers.controller "PagesIndexCtrl", [
-  "$scope"
-  "$rootScope"
-  "PagesService"
-  PagesIndexCtrl = ($scope, $rootScope, PagesService) ->
-    PagesService.show {}, (response) ->
-      $scope.pages = response
-      return
-    console.log PagesService
+  .controller "PagesIndexCtrl", [
+    "$scope"
+    "$routeParams"
+    "PagesService"
+    PagesIndexCtrl = ($scope, $routeParams, PagesService) ->
+      PagesService.show
+        pageId: 1
+      , (response) ->
+        $scope.page = response[0]
+        console.log $routeParams
+        return
 
-    $rootScope.title = "Список страниц"
-    return
-]
+  ]
+
+  return)()
