@@ -10,4 +10,11 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require_tree .
+//= require angular
+//= require angular-route
+//= require angular-resource
+
+//= require staff/app/app
+//= require staff/app/directives/root
+
+// require_tree .
