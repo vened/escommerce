@@ -19,6 +19,7 @@
 
 // require derectives
 //= require staff/app/directives/root
+//= require staff/app/directives/sidebar
 
 // require controllers
 //= require staff/app/controllers/page

@@ -5,6 +5,7 @@ app = angular.module("staff", [
   "ngRoute"
   "RootRoutes"
   "RootDirectives"
+  "SidebarDirectives"
   "DashboardController"
   "PagesController"
 ])
@@ -14,11 +15,24 @@ app.filter("trustAsHtml", [ "$sce", ($sce) ->
     $sce.trustAsHtml value
 ])
 
-app.factory "PhotoService", [ "$resource", ($resource) ->
-  return $resource("/ajax/paymentLayer.phtml", testmode: mambo.modal.testmode,
-      load:
-        method: "GET"
-      buy :
+
+app.factory "PagesService", [
+  "$resource"
+  ($resource) ->
+    return $resource(
+      "/pages/:pageId",
+      pageId: "@id",
+      show  :
+        method : "GET"
+        isArray: true
+
+      edit:
+        method: "PUT"
+
+      destroy:
+        method: "DELETE"
+
+      create:
         method: "POST"
-  )
+    )
 ]

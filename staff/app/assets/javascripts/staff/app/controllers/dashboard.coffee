@@ -4,7 +4,9 @@ controllers = angular.module("DashboardController", [])
 
 
 controllers.controller 'DashboardCtrl', [
-  '$scope'
-  PagesIndexCtrl = ($scope) ->
+  "$scope"
+  "$rootScope"
+  PagesIndexCtrl = ($scope, $rootScope) ->
+    $rootScope.title = "Dashboard"
     console.log 'page load'
 ]
