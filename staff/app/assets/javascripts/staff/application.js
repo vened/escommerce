@@ -15,6 +15,11 @@
 //= require angular-resource
 
 //= require staff/app/app
+//= require staff/app/routes
+
+// require derectives
 //= require staff/app/directives/root
 
-// require_tree .
+// require controllers
+//= require staff/app/controllers/page
+//= require staff/app/controllers/dashboard

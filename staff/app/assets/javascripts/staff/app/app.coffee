@@ -1,8 +1,12 @@
 "use strict"
 
 app = angular.module("staff", [
+  "ngResource"
+  "ngRoute"
+  "RootRoutes"
   "RootDirectives"
-#  "ngResource"
+  "DashboardController"
+  "PagesController"
 ])
 
 app.filter("trustAsHtml", [ "$sce", ($sce) ->
