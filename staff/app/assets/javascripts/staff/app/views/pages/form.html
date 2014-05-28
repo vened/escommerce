@@ -1,0 +1,20 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2 class="panel-title">{{title}}</h2>
+    </div>
+    <form role="form" action="">
+        <div class="panel-body">
+            <div class="form-group">
+                <label for="name">Заголовок</label>
+                <input type="text" class="form-control" id="name" placeholder="Заголовок" ng-model="pageName">
+            </div>
+            <!--<div class="form-group">-->
+                <!--<label for="body">Содержимое</label>-->
+                <!--<textarea class="form-control" id="body" ng-model="pageBody" placeholder="Содержимое"></textarea>-->
+            <!--</div>-->
+        </div>
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-success" ng-click="pageSent()">Сохранить</button>
+        </div>
+    </form>
+</div>

@@ -18,9 +18,12 @@
       return $resource("/staff/pages/:pageId",
         pageId: "@id"
       ,
-        show:
+        all:
           method : "GET"
           isArray: true
+
+        find:
+          method : "GET"
 
         edit:
           method: "PUT"
