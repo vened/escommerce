@@ -1,5 +1,6 @@
 Staff::Engine.routes.draw do
 
-  get '/' => 'pages#show'
+  get '/' => 'pages#dashboard'
+  get '/pages' => 'pages#index'
 
 end
