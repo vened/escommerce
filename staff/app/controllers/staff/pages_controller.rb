@@ -3,6 +3,7 @@ module Staff
     before_action :set_page, only: [:show, :edit, :update, :destroy]
 
     def dashboard
+      # render :json => {'s' => 0}
     end
 
     def index

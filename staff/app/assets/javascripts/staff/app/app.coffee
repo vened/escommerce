@@ -7,6 +7,7 @@
     "RootRoutes"
     "RootDirectives"
     "SidebarDirectives"
+    "AuthController"
     "DashboardController"
     "PagesController"
   ])
