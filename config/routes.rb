@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root 'pages#index'
+  
   resources :pages
 
   mount Staff::Engine => "/staff"
