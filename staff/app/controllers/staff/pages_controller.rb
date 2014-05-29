@@ -7,7 +7,7 @@ module Staff
 
     def index
       @pages = Page.all
-      render :json => @pages
+      render :json => Oj.dump(@pages, mode: :compat)
     end
 
     def show
