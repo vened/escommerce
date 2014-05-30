@@ -6,6 +6,7 @@ gem 'pg', '~> 0.17.1'
 
 # optimized json
 gem 'oj' 
+gem 'devise', '~> 3.2.4'
 
 gem 'sass-rails', '~> 4.0.3'
 gem 'bootstrap-sass'

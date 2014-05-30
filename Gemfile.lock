@@ -5,7 +5,7 @@ PATH
       angularjs-rails (~> 1.2.16)
       bootstrap-sass
       coffee-rails (~> 4.0.0)
-      devise (~> 3.2.4)
+      devise
       oj
       pg (~> 0.17.1)
       rails (= 4.1.1)
@@ -147,6 +147,7 @@ DEPENDENCIES
   angularjs-rails (~> 1.2.16)
   bootstrap-sass
   coffee-rails (~> 4.0.0)
+  devise (~> 3.2.4)
   jbuilder (~> 2.0)
   jquery-rails
   oj

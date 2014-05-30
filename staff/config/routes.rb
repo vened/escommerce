@@ -1,7 +1,15 @@
 Staff::Engine.routes.draw do
 
-  resources :pages
+  # devise_for :admins, class_name: "Staff::Admin"
+  devise_for :admins, { 
+    :class_name => "Staff::Admin",
+    :module => :devise,
+    :controllers => { :sessions => "staff/sessions" }
+  }
+  
+  
+  root to: 'pages#dashboard'
 
-  get '/' => 'pages#dashboard'
+  resources :pages
 
 end

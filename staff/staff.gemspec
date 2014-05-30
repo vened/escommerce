@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'rails', '4.1.1'
   s.add_dependency 'pg', '~> 0.17.1'
   s.add_dependency 'oj'
-  s.add_dependency 'devise', '~> 3.2.4'
+  s.add_dependency 'devise'
 
   s.add_dependency 'sass-rails', '~> 4.0.3'
   s.add_dependency 'bootstrap-sass'
@@ -29,5 +29,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'angularjs-rails', '~> 1.2.16'
 
 
-  # s.add_development_dependency 'pg', '~> 0.17.1'
+  s.add_development_dependency 'pg', '~> 0.17.1'
 end
