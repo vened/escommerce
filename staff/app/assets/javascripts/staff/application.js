@@ -16,6 +16,7 @@
 
 //= require staff/app/app
 //= require staff/app/routes
+//= require staff/app/services
 
 // require derectives
 //= require staff/app/directives/root

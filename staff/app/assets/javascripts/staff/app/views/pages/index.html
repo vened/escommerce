@@ -9,7 +9,7 @@
         </thead>
         <tbody>
         <tr ng-repeat="page in pages">
-            <td>{{ page.id }}</td>
+            <td><a href="#/pages/{{ page.id }}">{{ page.id }}</a></td>
             <td>{{ page.title }}</td>
             <td>
                 <a class="btn btn-danger" ng-click="destroy(page.id)">destroy</a>

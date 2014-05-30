@@ -42,19 +42,38 @@
       return
   ]
 
+  ctrl.controller "PagesNewCtrl", ($scope, $rootScope, $routeParams, $location, PagesService, TransliterateService) ->
+#    TransliterateService("ася")
+    $scope.$watch "pageTitle", (val) ->
+      $scope.pagePath = TransliterateService(val)
 
-  ctrl.controller "PagesNewCtrl", [
-    "$scope", "$rootScope", "$routeParams", "$location", "PagesService"
-    PagesNewCtrl = ($scope, $rootScope, $routeParams, $location, PagesService) ->
-      $rootScope.title = "Создание страницы"
-      $scope.pageSent = ->
-        PagesService.create
-          title: $scope.pageName, (res) ->
-            if res.$resolved is true
-              $location.path "/pages/#{res.id}"
-            return
-        return
+    $rootScope.title = "Создание страницы"
+    $scope.pageSent = ->
+      PagesService.create
+        title: $scope.pageTitle, (res) ->
+          if res.$resolved is true
+            $location.path "/pages/#{res.id}"
+          return
       return
-  ]
+    return
+
+  #  ctrl.controller "PagesNewCtrl", [
+  #    "$scope", "$rootScope", "$routeParams", "$location", "PagesService", "HelpersServices"
+  #    PagesNewCtrl = ($scope, $rootScope, $routeParams, $location, PagesService, HelpersServices) ->
+  #      $rootScope.title = "Создание страницы"
+  #
+  #      console.log(HelpersServices)
+  #
+  #      $scope.pagePath = "123"
+  #
+  #      $scope.pageSent = ->
+  #        PagesService.create
+  #          title: $scope.pageName, (res) ->
+  #            if res.$resolved is true
+  #              $location.path "/pages/#{res.id}"
+  #            return
+  #        return
+  #      return
+  #  ]
 
   return)()

@@ -5,6 +5,7 @@
     "ngResource"
     "ngRoute"
     "RootRoutes"
+    "HelpersServices"
     "RootDirectives"
     "SidebarDirectives"
     "AuthController"
