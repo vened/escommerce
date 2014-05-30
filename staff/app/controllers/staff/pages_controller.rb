@@ -13,7 +13,7 @@ module Staff
 
     def show
       @page = Page.find(params[:id])
-      render :json => @page
+      render :json => Oj.dump(@page, mode: :compat)
     end
 
     def new
