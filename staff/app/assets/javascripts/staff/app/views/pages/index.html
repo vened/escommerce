@@ -3,15 +3,20 @@
         <thead>
         <tr>
             <th>#</th>
+            <th>Path</th>
             <th>Заголовок</th>
-            <th>Table heading</th>
+            <th>Контент</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="page in pages">
             <td><a href="#/pages/{{ page.id }}">{{ page.id }}</a></td>
+            <td>{{ page.path }}</td>
             <td>{{ page.title }}</td>
+            <td>{{ page.body }}</td>
             <td>
+                <a class="btn btn-success" ng-click="edit(page.id)">редактировать</a>
                 <a class="btn btn-danger" ng-click="destroy(page.id)">destroy</a>
             </td>
         </tr>

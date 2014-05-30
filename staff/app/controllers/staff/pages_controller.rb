@@ -52,7 +52,7 @@ module Staff
     end
 
     def page_params
-      params.require(:page).permit(:title)
+      params.require(:page).permit(:title, :path, :body)
     end
 
 
