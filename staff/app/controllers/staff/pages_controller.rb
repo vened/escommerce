@@ -43,16 +43,12 @@ module Staff
     end
 
     def destroy
-      #@page = Page.find(params[:id])
       if @page.destroy
         @pages = Page.all
         render :json => {'d' => 1, "pages" => @pages}
       else
         render :json => {'d' => 0}
       end
-      #respond_to do |format|
-      #  format.json { head :no_content }
-      #end
     end
 
     private

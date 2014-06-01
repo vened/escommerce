@@ -54,7 +54,7 @@
     return
 
 
-  ctrl.controller "PagesEditCtrl", ($scope, $rootScope, $routeParams, PagesService, $http) ->
+  ctrl.controller "PagesEditCtrl", ($scope, $rootScope, $routeParams, PagesService, $http, $location) ->
     PagesService.find
       pageId: $routeParams.id
       (res) ->
@@ -76,20 +76,25 @@
         }
       )
       .success (data, status, headers, config) ->
-          console.log data, status, headers, config
+          $rootScope.pageSaveSuccess = true
+          $location.path "/pages/#{data.id}"
+          return
       .error (data, status, headers, config) ->
-          console.log data, status, headers, config
-      #      PagesService.edit
-      #        pageId: $routeParams.id
-      #        title: $scope.pageTitle
-      #        path: $scope.pagePath
-      #        body: $scope.pageBody, (res) ->
-      #          if res.$resolved is true
-      #            $rootScope.pageSaveSuccess = true
-      #            $location.path "/pages/#{res.id}"
-      #          return
+          $rootScope.pageSaveSuccess = true
+          $location.path "/pages/#{$routeParams.id}"
+          return
       return
 
+    return
+
+
+  ctrl.controller "PagesDestroyCtrl", ($scope, $rootScope, $routeParams, $http, $location) ->
+    $scope.destroy = (arg) ->
+      if arg is true
+        $http.delete "/staff/pages/#{$routeParams.id}"
+        $location.path "/pages/"
+      else if arg is false
+        $location.path "/pages/"
     return
 
 

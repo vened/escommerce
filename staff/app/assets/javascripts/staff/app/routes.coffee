@@ -25,6 +25,10 @@ routes.config ($routeProvider) ->
       controller: 'PagesEditCtrl',
       templateUrl: '/assets/staff/app/views/pages/form.html'
     )
+  .when('/pages/:id/destroy'
+      controller: 'PagesDestroyCtrl',
+      templateUrl: '/assets/staff/app/views/pages/delete.html'
+    )
   .otherwise(
       redirectTo: '/'
     )
