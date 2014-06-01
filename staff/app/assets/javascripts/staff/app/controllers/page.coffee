@@ -5,24 +5,9 @@
 
   ctrl.controller "PagesIndexCtrl", ($scope, $rootScope, $routeParams, PagesService) ->
     $rootScope.title = "Список статических страниц"
-
-    showAll = (pages) ->
-      if pages is undefined
-        PagesService.all (res) ->
-          $scope.pages = res
-          return
-      else
-        $scope.pages = pages
+    PagesService.all (res) ->
+      $scope.pages = res
       return
-
-    showAll()
-
-    $scope.destroy = (id) ->
-      PagesService.destroy
-        pageId: id
-        (res) ->
-          showAll(res.pages)
-          return
     return
 
 
