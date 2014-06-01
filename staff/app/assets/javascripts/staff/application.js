@@ -23,6 +23,5 @@
 //= require staff/app/directives/sidebar
 
 // require controllers
-//= require staff/app/controllers/auth
 //= require staff/app/controllers/page
 //= require staff/app/controllers/dashboard

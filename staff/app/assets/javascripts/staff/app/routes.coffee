@@ -6,13 +6,9 @@ routes = angular.module("RootRoutes", [])
 routes.config ($routeProvider) ->
   $routeProvider
   .when('/'
-      controller: 'LoginCtrl',
-      templateUrl: '/assets/staff/app/views/auth/login.html'
+      controller: 'DashboardCtrl',
+      templateUrl: '/assets/staff/app/views/dashboard.html'
     )
-#  .when('/'
-#      controller: 'DashboardCtrl',
-#      templateUrl: '/assets/staff/app/views/dashboard.html'
-#    )
   .when('/pages'
       controller: 'PagesIndexCtrl',
       templateUrl: '/assets/staff/app/views/pages/index.html'
@@ -24,6 +20,10 @@ routes.config ($routeProvider) ->
   .when('/pages/:id'
       controller: 'PagesShowCtrl',
       templateUrl: '/assets/staff/app/views/pages/show.html'
+    )
+  .when('/pages/:id/edit'
+      controller: 'PagesEditCtrl',
+      templateUrl: '/assets/staff/app/views/pages/form.html'
     )
   .otherwise(
       redirectTo: '/'

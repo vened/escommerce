@@ -8,7 +8,6 @@
     "HelpersServices"
     "RootDirectives"
     "SidebarDirectives"
-    "AuthController"
     "DashboardController"
     "PagesController"
   ])

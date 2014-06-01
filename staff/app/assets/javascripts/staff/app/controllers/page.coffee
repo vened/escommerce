@@ -4,26 +4,26 @@
   ctrl = angular.module("PagesController", [])
 
   ctrl.controller "PagesIndexCtrl", ($scope, $rootScope, $routeParams, PagesService) ->
-      $rootScope.title = "Список статических страниц"
+    $rootScope.title = "Список статических страниц"
 
-      showAll = (pages) ->
-        if pages is undefined
-          PagesService.all (res) ->
-            $scope.pages = res
-            return
-        else
-          $scope.pages = pages
-        return
-
-      showAll()
-
-      $scope.destroy = (id) ->
-        PagesService.destroy
-          pageId: id
-          (res) ->
-            showAll(res.pages)
-            return
+    showAll = (pages) ->
+      if pages is undefined
+        PagesService.all (res) ->
+          $scope.pages = res
+          return
+      else
+        $scope.pages = pages
       return
+
+    showAll()
+
+    $scope.destroy = (id) ->
+      PagesService.destroy
+        pageId: id
+        (res) ->
+          showAll(res.pages)
+          return
+    return
 
 
   ctrl.controller "PagesShowCtrl", ($scope, $rootScope, $routeParams, PagesService) ->
@@ -52,5 +52,45 @@
           return
       return
     return
+
+
+  ctrl.controller "PagesEditCtrl", ($scope, $rootScope, $routeParams, PagesService, $http) ->
+    PagesService.find
+      pageId: $routeParams.id
+      (res) ->
+        $rootScope.title = "Редактирование страницы"
+        $scope.pageTitle = res.title
+        $scope.pagePath = res.path
+        $scope.pageBody = res.body
+        return
+
+    $scope.pageSent = ->
+      # TODO:: сделать сервис или фабрику
+      $http.put(
+        "/staff/pages/#{$routeParams.id}"
+        {
+          pageId: $routeParams.id
+          title: $scope.pageTitle
+          path: $scope.pagePath
+          body: $scope.pageBody
+        }
+      )
+      .success (data, status, headers, config) ->
+          console.log data, status, headers, config
+      .error (data, status, headers, config) ->
+          console.log data, status, headers, config
+      #      PagesService.edit
+      #        pageId: $routeParams.id
+      #        title: $scope.pageTitle
+      #        path: $scope.pagePath
+      #        body: $scope.pageBody, (res) ->
+      #          if res.$resolved is true
+      #            $rootScope.pageSaveSuccess = true
+      #            $location.path "/pages/#{res.id}"
+      #          return
+      return
+
+    return
+
 
   return)()

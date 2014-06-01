@@ -16,7 +16,7 @@
             <td>{{ page.title }}</td>
             <td>{{ page.body }}</td>
             <td>
-                <a class="btn btn-success" ng-click="edit(page.id)">редактировать</a>
+                <a class="btn btn-success" href="#/pages/{{ page.id }}/edit">редактировать</a>
                 <a class="btn btn-danger" ng-click="destroy(page.id)">destroy</a>
             </td>
         </tr>

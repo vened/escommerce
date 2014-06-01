@@ -8,5 +8,4 @@ controllers.controller 'DashboardCtrl', [
   "$rootScope"
   PagesIndexCtrl = ($scope, $rootScope) ->
     $rootScope.title = "Dashboard"
-    console.log 'page load'
 ]

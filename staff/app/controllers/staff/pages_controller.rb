@@ -2,7 +2,7 @@ module Staff
   class PagesController < ApplicationController
     before_action :authenticate_admin!
     before_action :set_page, only: [:show, :edit, :update, :destroy]
-    
+
     def dashboard
       # render :json => {'s' => 0}
     end
@@ -27,6 +27,15 @@ module Staff
     def create
       @page = Page.new(page_params)
       if @page.save
+        render :json => @page
+      else
+        render :json => @page.errors
+      end
+    end
+
+    def update
+      @page = Page.find(params[:id])
+      if @page.update(page_params)
         render :json => @page
       else
         render :json => @page.errors
