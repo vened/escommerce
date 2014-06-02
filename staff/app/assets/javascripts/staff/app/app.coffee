@@ -5,6 +5,7 @@
     "ngResource"
     "ngRoute"
     "RootRoutes"
+    "PagesCommon"
     "HelpersServices"
     "RootDirectives"
     "SidebarDirectives"

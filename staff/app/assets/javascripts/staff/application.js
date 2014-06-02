@@ -16,12 +16,15 @@
 
 //= require staff/app/app
 //= require staff/app/routes
+
+// require services
 //= require staff/app/services
+//= require staff/app/services/pages
 
 // require derectives
 //= require staff/app/directives/root
 //= require staff/app/directives/sidebar
 
 // require controllers
-//= require staff/app/controllers/page
+//= require staff/app/controllers/pages
 //= require staff/app/controllers/dashboard
