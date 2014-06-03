@@ -17,6 +17,10 @@ routes.config ($routeProvider) ->
     controller : 'PagesNewCtrl',
     templateUrl: '/assets/staff/app/views/pages/form.html'
   )
+  .when('/pages/:id'
+    controller : 'PagesShowCtrl',
+    templateUrl: '/assets/staff/app/views/pages/show.html'
+  )
   .when('/pages/:id/edit'
     controller : 'PagesEditCtrl',
     templateUrl: '/assets/staff/app/views/pages/form.html'

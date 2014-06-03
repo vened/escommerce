@@ -6,6 +6,7 @@ PATH
       bootstrap-sass
       coffee-rails (~> 4.0.0)
       devise
+      font-awesome-rails (~> 4.1.0.0)
       oj
       pg (~> 0.17.1)
       rails (= 4.1.1)
@@ -63,6 +64,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.1.0)
+    font-awesome-rails (4.1.0.0)
+      railties (>= 3.2, < 5.0)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (2.0.7)
@@ -149,6 +152,7 @@ DEPENDENCIES
   bootstrap-sass
   coffee-rails (~> 4.0.0)
   devise (~> 3.2.4)
+  font-awesome-rails (~> 4.1.0.0)
   jbuilder (~> 2.0)
   jquery-rails
   oj

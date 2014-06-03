@@ -10,9 +10,12 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require angular
 //= require angular-route
 //= require angular-resource
+//= require ./libs/text-angular-sanitize
+//= require ./libs/text-angular
 
 //= require staff/app/app
 //= require staff/app/routes
