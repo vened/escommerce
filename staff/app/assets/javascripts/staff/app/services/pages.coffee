@@ -5,30 +5,21 @@ cmn = angular.module("PagesCommon", [])
 cmn.factory "Page", [ "$http", ($http) ->
   return(
 
-
     find: (id) ->
-      unless id
-        return
-      prom = $http.get("/staff/pages/#{id}")
-      return prom
-
+      return unless id
+      $http.get("/staff/pages/#{id}")
 
     all: () ->
-      prom = $http.get("/staff/pages/")
-      return prom
-      
-    new: (obj) ->
-      prom = $http.post("/staff/pages/", obj)
-      return prom
+      $http.get("/staff/pages/")
 
+    new: (obj) ->
+      $http.post("/staff/pages/", obj)
+
+    edit: (id, obj) ->
+      $http.put("/staff/pages/#{id}", obj)
 
     destroy: (id) ->
-      prom = $http.delete("/staff/pages/#{id}")
-      return prom
-
+      $http.delete("/staff/pages/#{id}")
 
   )
 ]
-
-
-#return $http.get("/staff/pages/#{id}")
