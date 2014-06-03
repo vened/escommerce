@@ -20,39 +20,22 @@
       return
     return
   ]
-  
 
-  ctrl.controller 'PagesNewCtrl', ["$scope", "$routeParams", "Page", "TransliterateService", PagesNewCtrl = ($scope, $routeParams, Page, TransliterateService) ->
-    $scope.$watch "page.pageTitle", (val) ->
-      unless val
+
+  ctrl.controller 'PagesNewCtrl', ["$scope", "$location", "Page", "TransliterateService", PagesNewCtrl = ($scope, $location, Page, TransliterateService) ->
+    $scope.$watch "page.title", (val) ->
+      if val is undefined
         return
-      $scope.page.pagePath = TransliterateService(val)
-#      return
-#      $scope.page.pagePath = TransliterateService(val)
-#    page = Page.find($routeParams.id)
-#    page.success (res) ->
-#      $scope.page = res
-#      return
+      $scope.page.path = TransliterateService(val)
+      return
+    $scope.pageSent = ->
+      page = Page.new($scope.page)
+      page.success (res) ->
+        $scope.page = res
+        $location.path "/pages/"
+        return
     return
   ]
-  
-
-#  ctrl.controller "PagesNewCtrl", ($scope, $rootScope, $routeParams, $location, PagesService, TransliterateService) ->
-#    $scope.$watch "pageTitle", (val) ->
-#      $scope.pagePath = TransliterateService(val)
-#
-#    $rootScope.title = "Создание страницы"
-#    $scope.pageSent = ->
-#      PagesService.create
-#        title: $scope.pageTitle
-#        path : $scope.pagePath
-#        body : $scope.pageBody, (res) ->
-#          if res.$resolved is true
-#            $rootScope.pageSaveSuccess = true
-#            $location.path "/pages/"
-#          return
-#      return
-#    return
 
 
   ctrl.controller "PagesEditCtrl", ($scope, $rootScope, $routeParams, PagesService, $http, $location) ->
