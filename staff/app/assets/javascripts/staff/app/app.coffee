@@ -7,12 +7,17 @@
     "ngSanitize"
     "RootRoutes"
     "textAngular"
+
     "PagesCommon"
+    "HtmlModulesCommon"
     "HelpersServices"
+
     "RootDirectives"
     "SidebarDirectives"
+
     "DashboardController"
     "PagesController"
+    "HtmlModulesIndexController"
   ])
   
   return)()

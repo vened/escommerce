@@ -23,6 +23,7 @@
 // require services
 //= require staff/app/services
 //= require staff/app/services/pages
+//= require staff/app/services/html_modules
 
 // require derectives
 //= require staff/app/directives/root
@@ -30,4 +31,5 @@
 
 // require controllers
 //= require staff/app/controllers/pages
+//= require staff/app/controllers/html_modules
 //= require staff/app/controllers/dashboard

@@ -11,5 +11,6 @@ Staff::Engine.routes.draw do
   root to: 'pages#dashboard'
 
   resources :pages
+  resources :html_modules
 
 end
