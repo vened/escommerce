@@ -44,8 +44,8 @@ GEM
       tzinfo (~> 1.1)
     angularjs-rails (1.2.16)
     arel (5.0.1.20140414130214)
-    awesome_nested_set (2.1.6)
-      activerecord (>= 3.0.0)
+    awesome_nested_set (3.0.0.rc.5)
+      activerecord (>= 4.0.0, < 5)
     bcrypt (3.1.7)
     bcrypt (3.1.7-x86-mingw32)
     bootstrap-sass (3.1.1.1)
@@ -151,7 +151,7 @@ PLATFORMS
 
 DEPENDENCIES
   angularjs-rails (~> 1.2.16)
-  awesome_nested_set (~> 2.1.6)
+  awesome_nested_set (~> 3.0.0.rc.5)
   bootstrap-sass
   coffee-rails (~> 4.0.0)
   devise (~> 3.2.4)

@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 
+  mount Staff::Engine => "/staff"
+
+
   root 'pages#index'
   # get '/' => 'pages#index'
   get '/:id' => 'pages#show', :as => :page
-  
-  # resources :pages
 
-  mount Staff::Engine => "/staff"
+  # resources :pages
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
