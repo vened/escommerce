@@ -1,6 +1,8 @@
 # encoding: utf-8
 class Page < ActiveRecord::Base
   acts_as_nested_set
+
+  has_and_belongs_to_many :html_modules
   # attr_accessible :title, :text, :meta_key, :meta_desc, :meta_title, :path, :parent_id
   # 
   # 

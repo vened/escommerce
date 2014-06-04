@@ -35,6 +35,8 @@ module Staff
 
     def update
       @page = Page.find(params[:id])
+      @html_module = HtmlModule.find(5)
+      @page.html_modules << @html_module
       if @page.update(page_params)
         render :json => @page
       else

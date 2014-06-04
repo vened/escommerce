@@ -11,10 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2) do
+ActiveRecord::Schema.define(version: 4) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "html_modules", force: true do |t|
+    t.string "name"
+    t.string "lang"
+    t.string "title"
+    t.text   "body"
+  end
+
+  add_index "html_modules", ["lang"], name: "index_html_modules_on_lang", using: :btree
+  add_index "html_modules", ["name"], name: "index_html_modules_on_name", using: :btree
+
+  create_table "html_modules_pages", id: false, force: true do |t|
+    t.integer "html_module_id"
+    t.integer "page_id"
+  end
+
+  add_index "html_modules_pages", ["html_module_id"], name: "index_html_modules_pages_on_html_module_id", using: :btree
+  add_index "html_modules_pages", ["page_id"], name: "index_html_modules_pages_on_page_id", using: :btree
 
   create_table "pages", force: true do |t|
     t.string   "title"

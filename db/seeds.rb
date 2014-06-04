@@ -10,4 +10,8 @@
               path: "page-#{i}",
               body: "This file should contain all the record creation needed to seed the database with its default values."
   )
+  HtmlModule.create(title: "Module #{i}",
+                    name: "module-#{i}",
+                    body: "Module body"
+  )
 end

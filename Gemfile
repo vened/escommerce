@@ -3,10 +3,12 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.1'
 
 gem 'pg', '~> 0.17.1'
-# gem 'awesome_nested_set', '~> 2.1.6'
-gem "awesome_nested_set", '~> 3.0.0.rc.5'
+gem 'awesome_nested_set', '~> 3.0.0.rc.5'
+gem 'cells', '~> 3.11.1'
+
 
 # optimized json
+gem 'haml-rails'
 gem 'oj' 
 gem 'devise', '~> 3.2.4'
 

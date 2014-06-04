@@ -51,6 +51,10 @@ GEM
     bootstrap-sass (3.1.1.1)
       sass (~> 3.2)
     builder (3.2.2)
+    cells (3.11.1)
+      actionpack (>= 3.0)
+      railties (>= 3.0)
+      uber (~> 0.0.6)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -68,6 +72,13 @@ GEM
     execjs (2.1.0)
     font-awesome-rails (4.1.0.0)
       railties (>= 3.2, < 5.0)
+    haml (4.0.5)
+      tilt
+    haml-rails (0.5.3)
+      actionpack (>= 4.0.1)
+      activesupport (>= 4.0.1)
+      haml (>= 3.1, < 5.0)
+      railties (>= 4.0.1)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (2.0.7)
@@ -139,6 +150,7 @@ GEM
       thread_safe (~> 0.1)
     tzinfo-data (1.2014.3)
       tzinfo (>= 1.0.0)
+    uber (0.0.6)
     uglifier (2.5.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
@@ -153,9 +165,11 @@ DEPENDENCIES
   angularjs-rails (~> 1.2.16)
   awesome_nested_set (~> 3.0.0.rc.5)
   bootstrap-sass
+  cells (~> 3.11.1)
   coffee-rails (~> 4.0.0)
   devise (~> 3.2.4)
   font-awesome-rails (~> 4.1.0.0)
+  haml-rails
   jbuilder (~> 2.0)
   jquery-rails
   oj
