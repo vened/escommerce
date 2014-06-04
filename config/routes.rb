@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
   root 'pages#index'
-  get 'pages/:id' => 'pages#show', as: :page
+  # get '/' => 'pages#index'
+  get '/:id' => 'pages#show', :as => :page
   
-  #resources :pages
+  # resources :pages
 
   mount Staff::Engine => "/staff"
   # The priority is based upon order of creation: first created -> highest priority.

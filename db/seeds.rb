@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 5.times do |i|
   Page.create(title: "Page #{i}",
+              path: "page-#{i}",
               body: "This file should contain all the record creation needed to seed the database with its default values."
   )
 end
