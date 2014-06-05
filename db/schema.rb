@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 4) do
 
   create_table "html_modules", force: true do |t|
     t.string "name"
+    t.string "position"
     t.string "lang"
     t.string "title"
     t.text   "body"
@@ -25,6 +26,7 @@ ActiveRecord::Schema.define(version: 4) do
 
   add_index "html_modules", ["lang"], name: "index_html_modules_on_lang", using: :btree
   add_index "html_modules", ["name"], name: "index_html_modules_on_name", using: :btree
+  add_index "html_modules", ["position"], name: "index_html_modules_on_position", using: :btree
 
   create_table "html_modules_pages", id: false, force: true do |t|
     t.integer "html_module_id"

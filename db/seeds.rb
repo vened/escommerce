@@ -15,3 +15,8 @@
                     body: "Module body"
   )
 end
+
+
+@page = Page.last(1)
+@html_module = HtmlModule.first(2)
+@page.html_modules = @html_module
