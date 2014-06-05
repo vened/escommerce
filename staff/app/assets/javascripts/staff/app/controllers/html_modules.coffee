@@ -11,4 +11,12 @@
     return
   ]
 
+  ctrl.controller 'HtmlModulesShowCtrl', ["$scope", "$routeParams", "HtmlModule", HtmlModulesShowCtrl = ($scope, $routeParams, HtmlModule) ->
+    htmlModule = HtmlModule.find($routeParams.id)
+    htmlModule.success (res) ->
+      $scope.htmlModule = res
+      return
+    return
+  ]
+
   return)()
