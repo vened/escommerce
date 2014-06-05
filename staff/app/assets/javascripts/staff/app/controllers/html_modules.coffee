@@ -13,9 +13,7 @@
   ctrl.controller 'HtmlModulesShowCtrl', ["$scope", "$routeParams", "Page", "HtmlModule", HtmlModulesShowCtrl = ($scope, $routeParams, Page, HtmlModule) ->
     HtmlModule.find($routeParams.id).success (res) ->
       $scope.htmlModule = res
-      return
-    Page.all().success (res) ->
-      $scope.pages = res
+      $scope.pages = res.pages
       return
     $scope.submit = ->
       pagesId = $scope.pages.filter (value) -> value.checked

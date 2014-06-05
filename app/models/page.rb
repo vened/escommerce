@@ -2,6 +2,7 @@
 class Page < ActiveRecord::Base
   has_and_belongs_to_many :html_modules
   acts_as_nested_set
+  
   # attr_accessible :title, :text, :meta_key, :meta_desc, :meta_title, :path, :parent_id
   # 
   # 
@@ -18,5 +19,7 @@ class Page < ActiveRecord::Base
   def to_param
     "#{parent_path}"
   end
+  
+  
 
 end

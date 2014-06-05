@@ -11,8 +11,9 @@ module Staff
     def show
       @html_module = HtmlModule.find(params[:id])
       @html_pages = @html_module.pages
+      @pages = Page.all
       logger.info @html_pages
-      render :json => Oj.dump({:module => @html_module, :pages => @html_pages}, mode: :compat)
+      render :json => Oj.dump({:module => @html_module, :pages => @pages - @html_pages}, mode: :compat)
     end
 
     def update
