@@ -2,3 +2,15 @@
 <div>
     {{ htmlModule.body }}
 </div>
+
+
+<h2>Страницы на котрых отображать модуль</h2>
+
+<form role="form" name="pagesId" ng-submit="submit()">
+    <div class="checkbox" ng-repeat="page in pages">
+        <label>
+            <input type="checkbox" name="pages" ng-model="page.checked"> {{ page.title }}
+        </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

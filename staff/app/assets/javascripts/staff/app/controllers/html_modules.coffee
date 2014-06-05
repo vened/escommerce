@@ -4,17 +4,23 @@
   ctrl = angular.module("HtmlModulesIndexController", [])
 
   ctrl.controller 'HtmlModulesIndexCtrl', ["$scope", "$routeParams", "HtmlModule", HtmlModulesIndexCtrl = ($scope, $routeParams, HtmlModule) ->
-    htmlModule = HtmlModule.all()
-    htmlModule.success (res) ->
+    HtmlModule.all().success (res) ->
       $scope.htmlModules = res
       return
     return
   ]
 
-  ctrl.controller 'HtmlModulesShowCtrl', ["$scope", "$routeParams", "HtmlModule", HtmlModulesShowCtrl = ($scope, $routeParams, HtmlModule) ->
-    htmlModule = HtmlModule.find($routeParams.id)
-    htmlModule.success (res) ->
+  ctrl.controller 'HtmlModulesShowCtrl', ["$scope", "$routeParams", "Page", "HtmlModule", HtmlModulesShowCtrl = ($scope, $routeParams, Page, HtmlModule) ->
+    HtmlModule.find($routeParams.id).success (res) ->
       $scope.htmlModule = res
+      return
+    Page.all().success (res) ->
+      $scope.pages = res
+      return
+    $scope.submit = ->
+      pagesId = $scope.pages.filter (value) -> value.checked
+      console.log pagesId
+      HtmlModule.edit($routeParams.id, pagesId)
       return
     return
   ]
