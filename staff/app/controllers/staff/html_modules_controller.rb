@@ -10,17 +10,18 @@ module Staff
 
     def show
       @html_module = HtmlModule.find(params[:id])
-      render :json => Oj.dump(@html_module, mode: :compat)
+      @html_pages = @html_module.pages
+      logger.info @html_pages
+      render :json => Oj.dump({:module => @html_module, :pages => @html_pages}, mode: :compat)
     end
 
-    def update 
+    def update
       params[:_json].each do |param|
-        logger.info "info params \n #{param[:id]}"
-        # @html_module.pages << param
         @page = Page.find(param[:id])
         @html_module = HtmlModule.find(params[:id])
-        @page.html_modules << @html_module
-        # @html_module.update
+        unless @page.html_modules.exists?(@html_module)
+          @page.html_modules << @html_module
+        end
       end
       #@html_module.pages << @page
       # if @html_module.update(params)
