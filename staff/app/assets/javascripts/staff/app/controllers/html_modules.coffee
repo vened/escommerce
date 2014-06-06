@@ -14,7 +14,7 @@
 
 
   ctrl.controller 'HtmlModulesShowCtrl',
-    ["$scope", "$routeParams", "Page", "HtmlModule", HtmlModulesShowCtrl = ($scope, $routeParams, Page, HtmlModule) ->
+    ["$scope", "$routeParams", "HtmlModule", HtmlModulesShowCtrl = ($scope, $routeParams, HtmlModule) ->
       HtmlModule.find($routeParams.id).success (res) ->
         $scope.htmlModule = res.module
         $scope.pages = res.pages
@@ -24,16 +24,47 @@
     ]
 
 
+  ctrl.controller 'HtmlModulesNewCtrl',
+    ["$scope", "$location", "HtmlModule", HtmlModulesNewCtrl = ($scope, $location, HtmlModule) ->
+      $scope.moduleSent = ->
+        HtmlModule.new($scope.module)
+        .success () ->
+            $location.path "/html_modules/"
+            return
+        .error (res, head) ->
+            $scope.error = head
+            return
+      return
+    ]
+
+
+  ctrl.controller 'HtmlModulesEditCtrl',
+    ["$scope", "$routeParams", "HtmlModule", "$location", HtmlModulesEditCtrl = ($scope, $routeParams, HtmlModule, $location) ->
+      HtmlModule.find($routeParams.id).success (res) ->
+        $scope.module = res.module
+        return
+      $scope.moduleSent = ->
+        HtmlModule.edit($routeParams.id, $scope.module)
+        .success () ->
+            $location.path "/html_modules/#{$routeParams.id}"
+            return
+        .error (res, head) ->
+            $scope.error = head
+            return
+      return
+    ]
+
+
   ctrl.controller 'HtmlModulesDestroyCtrl',
     ["$scope", "$routeParams", "$location", "HtmlModule", HtmlModulesDestroyCtrl = ($scope, $routeParams, $location, HtmlModule) ->
       $scope.destroy = ->
-        module = HtmlModule.destroy($routeParams.id)
-        module.success () ->
-          $location.path "/html_modules/"
-          return
-        module.error (res, head) ->
-          $scope.error = head
-          return
+        HtmlModule.destroy($routeParams.id)
+        .success () ->
+            $location.path "/html_modules/"
+            return
+        .error (res, head) ->
+            $scope.error = head
+            return
       return
     ]
 

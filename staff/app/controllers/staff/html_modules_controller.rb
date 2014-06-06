@@ -14,8 +14,18 @@ module Staff
       render :json => Oj.dump({:module => @html_module, :pages => @pages, :linkedPages => @linked_pages}, mode: :compat)
     end
 
+    def create
+      @html_module = HtmlModule.new(module_params)
+      if @html_module.save
+        render :json => Oj.dump(@html_module, mode: :compat)
+      else
+        render :json => @html_module.errors
+      end
+    end
+
+
     def update
-      if @html_module.update(params)
+      if @html_module.update(module_params)
         render :json => Oj.dump(@html_module, mode: :compat)
       end
     end
@@ -50,6 +60,7 @@ module Staff
 
 
     private
+
     def set_module
       @html_module = HtmlModule.find(params[:id])
     end

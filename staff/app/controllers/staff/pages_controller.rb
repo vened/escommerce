@@ -21,9 +21,6 @@ module Staff
       @page = Page.new
     end
 
-    def edit
-    end
-
     def create
       @page = Page.new(page_params)
       if @page.save
@@ -34,9 +31,6 @@ module Staff
     end
 
     def update
-      @page = Page.find(params[:id])
-      @html_module = HtmlModule.find(2)
-      @page.html_modules << @html_module
       if @page.update(page_params)
         render :json => @page
       else
