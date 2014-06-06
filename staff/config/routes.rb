@@ -13,4 +13,7 @@ Staff::Engine.routes.draw do
   resources :pages
   resources :html_modules
 
+  put 'html_modules/link/:id/:page_id' => 'html_modules#link'
+  put 'html_modules/unlink/:id/:page_id' => 'html_modules#unlink'
+
 end

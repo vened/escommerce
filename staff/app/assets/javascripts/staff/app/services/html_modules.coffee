@@ -18,6 +18,12 @@ cmn.factory "HtmlModule", [ "$http", ($http) ->
     edit: (id, obj) ->
       $http.put("/staff/html_modules/#{id}", obj)
 
+    link: (id, pageId) ->
+      $http.put("/staff/html_modules/link/#{id}/#{pageId}")
+
+    unlink: (id, pageId) ->
+      $http.put("/staff/html_modules/unlink/#{id}/#{pageId}")
+
     destroy: (id) ->
       $http.delete("/staff/html_modules/#{id}")
 

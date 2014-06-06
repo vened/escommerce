@@ -1,0 +1,26 @@
+@import "bootstrap/variables";
+.module{
+  margin-bottom: 30px;
+}
+
+.linkedPages{
+  margin: 0 0 3px;
+  padding: 0;
+  list-style: none;
+  font-size: 15px;
+
+  .glyphicon{
+    margin: 0 3px 0 0;
+    color: $brand-primary;
+    cursor: pointer;
+    opacity: .8;
+
+    &.glyphicon-remove{
+      color: $brand-danger;
+    }
+
+    &:hover{
+      opacity: 1;
+    }
+  }
+}

@@ -1,16 +1,46 @@
-<h1>{{ htmlModule.module.title }}</h1>
-<div>
-    {{ htmlModule.module.body }}
+<div class="row module">
+    <div class="col-xs-12">
+        <h1>{{ htmlModule.title }}</h1>
+        <div>
+            {{ htmlModule.body }}
+        </div>
+    </div>
 </div>
 
 
-<h2>Страницы на котрых отображать модуль</h2>
-
-<form role="form" name="pagesId" ng-submit="submit()">
-    <div class="checkbox" ng-repeat="page in pages">
-        <label>
-            <input type="checkbox" name="pages" ng-model="page.checked"> {{ page.title }}
-        </label>
+<div class="row" ng-controller="HtmlModulesLinkedCtrl">
+    <div class="col-xs-6">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Привязать к странице</h3>
+            </div>
+            <div class="panel-body">
+                <div class="linkedPages" ng-repeat="page in pages">
+                    <span class="glyphicon glyphicon-plus" ng-click="linkedPage(page.id)"></span>
+                    {{ page.title }}
+                </div>
+            </div>
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+    <div class="col-xs-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Привязанные страницы</h3>
+            </div>
+            <div class="panel-body">
+                <div ng-repeat="page in linkedPages" class="linkedPages">
+                    <span class="glyphicon glyphicon-remove" ng-click="unlinkedPage(page.id)"></span> {{ page.title }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<form role="form" name="pagesId" ng-submit="submit()">-->
+<!--<div class="checkbox" ng-repeat="page in pages">-->
+<!--<label>-->
+<!--<input type="checkbox" name="pages" ng-model="page.checked"> {{ page.title }}-->
+<!--</label>-->
+<!--</div>-->
+<!--<button type="submit" class="btn btn-primary">Submit</button>-->
+<!--</form>-->
