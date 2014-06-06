@@ -18,5 +18,5 @@ end
 
 
 @page = Page.last(1)
-@html_module = HtmlModule.first(2)
-@page.html_modules = @html_module
+@html_module = HtmlModule.last(1)
+@html_module.pages = @html_module
