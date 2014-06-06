@@ -1,0 +1,13 @@
+
+.row
+  .col-xs-12= raw module_to(@modules, 'top')
+
+.row
+  .col-xs-3= raw module_to(@modules, 'left')
+  .col-xs-6
+    %h1= @page.title
+    %div= raw @page.body
+  .col-xs-3= raw module_to(@modules, 'right')
+
+.row
+  .col-xs-12= raw module_to(@modules, 'bottom')

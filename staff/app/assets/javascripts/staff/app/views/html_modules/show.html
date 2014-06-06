@@ -1,9 +1,7 @@
 <div class="row module">
     <div class="col-xs-12">
         <h1>{{ htmlModule.title }}</h1>
-        <div>
-            {{ htmlModule.body }}
-        </div>
+        <div ng-bind-html="htmlModule.body"></div>
     </div>
 </div>
 

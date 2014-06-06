@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   end
 
   def show
+    @modules = @page.html_modules
   end
 
   private
