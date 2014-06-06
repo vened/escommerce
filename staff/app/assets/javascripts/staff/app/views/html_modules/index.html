@@ -1,7 +1,32 @@
-<h1>html modules</h1>
+<div class="row pagesHead">
+    <div class="col-xs-8">
+        <h2>Html модули</h2>
+    </div>
+    <div class="col-xs-4 text-right">
+        <a href="#/html_modules/new" class="btn btn-primary">Создать модуль</a>
+    </div>
+</div>
 
-<ul>
-    <li ng-repeat="mod in htmlModules">
-        <a href="#/html_modules/{{ mod.id }}">{{ mod.title }}</a>
-    </li>
-</ul>
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Системное имя</th>
+            <th>Заголовок на сайте</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="module in htmlModules">
+            <td><a href="#/html_modules/{{ html_modules.id }}">{{ module.id }}</a></td>
+            <td>{{ module.name }}</td>
+            <td>{{ module.title }}</td>
+            <td>
+                <a class="btn btn-success" href="#/html_modules/{{ module.id }}/edit">редактировать</a>
+                <a class="btn btn-danger" href="#/html_modules/{{ module.id }}/destroy">destroy</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

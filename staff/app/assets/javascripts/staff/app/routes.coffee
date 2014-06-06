@@ -28,7 +28,7 @@ routes.config ($routeProvider) ->
   )
   .when('/pages/:id/destroy'
     controller : 'PagesDestroyCtrl',
-    templateUrl: '/assets/staff/app/views/pages/delete.html'
+    templateUrl: '/assets/staff/app/views/pages/destroy.html'
   )
 
 

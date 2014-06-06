@@ -24,6 +24,20 @@
     ]
 
 
+  ctrl.controller 'HtmlModulesDestroyCtrl',
+    ["$scope", "$routeParams", "$location", "HtmlModule", HtmlModulesDestroyCtrl = ($scope, $routeParams, $location, HtmlModule) ->
+      $scope.destroy = ->
+        module = HtmlModule.destroy($routeParams.id)
+        module.success () ->
+          $location.path "/html_modules/"
+          return
+        module.error (res, head) ->
+          $scope.error = head
+          return
+      return
+    ]
+
+
   ctrl.controller 'HtmlModulesLinkedCtrl',
     ["$scope", "$routeParams", "Page", "HtmlModule", HtmlModulesLinkedCtrl = ($scope, $routeParams, Page, HtmlModule) ->
       $scope.linkedPage = (pageId) ->
