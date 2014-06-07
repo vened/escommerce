@@ -5,6 +5,13 @@
     <form role="form" action="">
         <div class="panel-body">
             <div class="form-group">
+ r               <label for="title">Язык</label>
+                <select name="pageLang" ng-init="page.lang = 'ru'" ng-model="page.lang">
+                    <option value="ru">ru</option>
+                    <option value="en">en</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="title">Заголовок</label>
                 <input type="text" class="form-control" id="title" placeholder="Заголовок" name="pageTitle" ng-model="page.title">
             </div>
@@ -14,7 +21,8 @@
             </div>
             <div class="form-group">
                 <label>Содержимое</label>
-                <div text-angular ng-model="page.body"></div>
+                <input ng-model="page.body" type="text">
+                <!--<div text-angular ng-model="page.body"></div>-->
             </div>
         </div>
         <div class="panel-footer">

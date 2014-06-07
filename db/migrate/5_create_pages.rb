@@ -4,8 +4,9 @@ class CreatePages < ActiveRecord::Migration
 
       t.string :title
       t.string :path
+      t.string :lang
       t.text :body
-      
+
       t.string :meta_key
       t.string :meta_desc
 
@@ -17,6 +18,7 @@ class CreatePages < ActiveRecord::Migration
       t.timestamps
     end
     add_index :pages, :path
+    add_index :pages, :lang
     add_index :pages, :parent_id
     add_index :pages, :lft
     add_index :pages, :rgt

@@ -3,9 +3,12 @@ Rails.application.routes.draw do
   mount Staff::Engine => "/staff"
 
 
+  get '/:locale' => 'pages#index'
   root 'pages#index'
   # get '/' => 'pages#index'
-  get '/:id' => 'pages#show', :as => :page
+  scope "(:locale)", locale: /ru|en/ do
+    get '/:id' => 'pages#show', :as => :page
+  end
 
   # resources :pages
   # The priority is based upon order of creation: first created -> highest priority.

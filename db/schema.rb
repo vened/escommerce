@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 4) do
+ActiveRecord::Schema.define(version: 5) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "html_modules", force: true do |t|
     t.string "name"
@@ -39,6 +40,7 @@ ActiveRecord::Schema.define(version: 4) do
   create_table "pages", force: true do |t|
     t.string   "title"
     t.string   "path"
+    t.string   "lang"
     t.text     "body"
     t.string   "meta_key"
     t.string   "meta_desc"
@@ -50,6 +52,7 @@ ActiveRecord::Schema.define(version: 4) do
     t.datetime "updated_at"
   end
 
+  add_index "pages", ["lang"], name: "index_pages_on_lang", using: :btree
   add_index "pages", ["lft"], name: "index_pages_on_lft", using: :btree
   add_index "pages", ["parent_id"], name: "index_pages_on_parent_id", using: :btree
   add_index "pages", ["path"], name: "index_pages_on_path", using: :btree

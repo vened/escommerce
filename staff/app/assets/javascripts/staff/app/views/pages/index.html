@@ -12,6 +12,7 @@
         <thead>
         <tr>
             <th>#</th>
+            <th>Lang</th>
             <th>Path</th>
             <th>Заголовок</th>
             <th>Контент</th>
@@ -21,6 +22,7 @@
         <tbody>
         <tr ng-repeat="page in pages">
             <td><a href="#/pages/{{ page.id }}">{{ page.id }}</a></td>
+            <td>{{ page.lang }}</td>
             <td>{{ page.path }}</td>
             <td>{{ page.title }}</td>
             <td ng-bind-html="page.body"></td>
