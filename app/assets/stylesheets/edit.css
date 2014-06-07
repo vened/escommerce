@@ -1,0 +1,38 @@
+.color1{color:#8e29ad}
+.link-1{display:inline-block;height:17px;padding:0 0 0 25px;background:url('icons/arrow1.gif') no-repeat 0 1px;color:#8e29ad;text-decoration:none}
+.link-1:hover{text-decoration:underline}
+.link-2{display:inline-block;height:17px;padding:0 0 0 25px;background:url('icons/arrow2.gif') no-repeat 0 1px;color:#4c8d26;text-decoration:none}
+.link-2:hover{text-decoration:underline}
+.link-3{display:inline-block;height:17px;padding:0 0 0 25px;background:url('icons/arrow3.gif') no-repeat 0 1px;color:#8e29ad;text-decoration:none}
+.link-3:hover{text-decoration:underline}
+.link-4{display:inline-block;height:17px;padding:0 0 0 25px;background:url('icons/arrow4.gif') no-repeat 0 1px;color:#0684c8;text-decoration:none}
+.link-4:hover{text-decoration:underline}
+.link-5{display:inline-block;height:17px;padding:0 0 0 25px;background:url('icons/arrow5.gif') no-repeat 0 1px;color:#3f55ad;text-decoration:none}
+.link-5:hover{text-decoration:underline}
+.link-6{display:inline-block;height:17px;padding:0 0 0 25px;background:url('icons/arrow3.gif') no-repeat 0 1px;color:#8e29ad}
+.fb{display:inline-block;height:16px;margin:0 0 0 8px;padding:0 0 0 20px;background:url('icons/fb.gif') no-repeat 0 0}
+.tw{display:inline-block;height:16px;margin:0 0 0 8px;padding:0 0 0 20px;background:url('icons/tw.gif') no-repeat 0 0}
+.lj{display:inline-block;height:16px;margin:0 0 0 8px;padding:0 0 0 20px;background:url('icons/lj.gif') no-repeat 0 0}
+
+.h3_1{padding:0 0 8px;background:url('module/title1.gif') no-repeat left bottom}
+.h3_2{padding:0 0 8px;background: url('module/title2.gif') repeat-x left bottom}
+.h3_3{padding:0 0 8px;background: url('module/title3.gif') repeat-x left bottom}
+.h3_4{padding:0 0 8px;background: url('module/title4.gif') repeat-x left bottom}
+.h3_5{padding:0 0 8px;background: url('module/title5.gif') repeat-x left bottom}
+
+.fl-l{float:left}
+.fl-r{float:right}
+
+.ml10{margin-left:10px}
+.ml15{margin-left:15px}
+.ml20{margin-left:20px}
+.ml25{margin-left:25px}
+.mr10{margin-right:10px}
+.mr15{margin-right:15px}
+.mr20{margin-right:20px}
+.mr25{margin-right:25px}
+
+.fs10{font-size:10px;line-height:12px}
+.fs12{font-size:12px;line-height:16px}
+.fs14{font-size:14px;line-height:19px}
+.fs16{font-size:16px;line-height:20px}
