@@ -11,11 +11,14 @@
 // about supported directives.
 //
 
+//= require codemirror
+
 //= require angular
 //= require angular-route
 //= require angular-resource
 //= require ./libs/text-angular-sanitize
 //= require ./libs/text-angular
+//= require ./libs/ui-code-mirror
 
 //= require staff/app/app
 //= require staff/app/routes

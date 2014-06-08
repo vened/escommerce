@@ -7,6 +7,7 @@
     "ngSanitize"
     "RootRoutes"
     "textAngular"
+    "ui.codemirror"
 
     "PagesCommon"
     "HtmlModulesCommon"

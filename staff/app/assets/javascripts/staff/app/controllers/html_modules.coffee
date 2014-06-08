@@ -26,6 +26,12 @@
 
   ctrl.controller 'HtmlModulesNewCtrl',
     ["$scope", "$location", "HtmlModule", HtmlModulesNewCtrl = ($scope, $location, HtmlModule) ->
+      $scope.editorOptions = {
+        height: "500px"
+        lineNumbers: true
+        lineWrapping: true
+        mode: 'html'
+      }
       $scope.moduleSent = ->
         HtmlModule.new($scope.module)
         .success () ->
@@ -40,6 +46,12 @@
 
   ctrl.controller 'HtmlModulesEditCtrl',
     ["$scope", "$routeParams", "HtmlModule", "$location", HtmlModulesEditCtrl = ($scope, $routeParams, HtmlModule, $location) ->
+      $scope.editorOptions = {
+        height: "500px"
+        lineNumbers: true
+        lineWrapping: true
+        mode: 'html'
+      }
       HtmlModule.find($routeParams.id).success (res) ->
         $scope.module = res.module
         return

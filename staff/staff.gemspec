@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'coffee-rails', '~> 4.0.0'
   s.add_dependency 'angularjs-rails', '~> 1.2.16'
   s.add_dependency 'font-awesome-rails', '~> 4.1.0.0'
+  s.add_dependency 'codemirror-rails', '~> 4.2'
 
 
   s.add_development_dependency 'pg', '~> 0.17.1'
