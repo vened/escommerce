@@ -12,6 +12,13 @@ class PagesController < ApplicationController
     @pages = Page.all.where(lang: curent_lang)
   end
 
+
+  def home
+    @page = Page.find_by_path('home')
+    @modules = @page.html_modules
+  end
+
+
   def show
     @modules = @page.html_modules
   end

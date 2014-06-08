@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   mount Staff::Engine => "/staff"
 
 
-  get '/:locale' => 'pages#index'
-  root 'pages#index'
+  get '/:locale' => 'pages#home'
+  root 'pages#home'
   # get '/' => 'pages#index'
   scope "(:locale)", locale: /ru|en/ do
     get '/:id' => 'pages#show', :as => :page
