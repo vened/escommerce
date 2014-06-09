@@ -12,6 +12,12 @@ class PagesController < ApplicationController
     @pages = Page.all.where(lang: curent_lang)
   end
 
+  def dr
+    @page = Page.first
+    @cont = @page.contents.create(title: "qqeqwe", body: "asdcxsadx")
+    render :json => {s: @page, c: @cont}
+  end
+
 
   def home
     if params[:locale]

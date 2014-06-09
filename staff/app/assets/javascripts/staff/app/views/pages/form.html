@@ -6,14 +6,14 @@
         <div class="panel-body">
             <div class="form-group">
                 <label for="title">Язык</label>
-                <select name="pageLang" ng-init="page.lang = 'ru'" ng-model="page.lang" ng-change="findPage(page.lang)">
+                <select name="pageLang" ng-init="page.content.lang = 'ru'" ng-model="page.content.lang">
                     <option value="ru">ru</option>
                     <option value="en">en</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="title">Заголовок</label>
-                <input type="text" class="form-control" id="title" placeholder="Заголовок" name="pageTitle" ng-model="page.title">
+                <input type="text" class="form-control" id="title" placeholder="Заголовок" name="pageTitle" ng-model="page.content.title">
             </div>
             <div class="form-group">
                 <label for="path">Url страницы</label>
@@ -21,7 +21,7 @@
             </div>
             <div class="form-group">
                 <label>Содержимое</label>
-                <input ng-model="page.body" type="text">
+                <input ng-model="page.content.body" type="text">
                 <!--<div text-angular ng-model="page.body"></div>-->
             </div>
         </div>

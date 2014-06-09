@@ -36,10 +36,10 @@ module Staff
 
     def create
       @page = Page.new(page_params)
-      if @page.save
-        render :json => @page
+      if @page.save && @page.contents.create!(content_params)
+          render :json => @page
       else
-        render :json => @page.errors
+        render :json => {page: @page.errors, cont: @page.contents.errors}
       end
     end
 
@@ -67,7 +67,10 @@ module Staff
     end
 
     def page_params
-      params.require(:page).permit(:lang, :title, :path, :body)
+      params.require(:page).permit(:path)
+    end
+    def content_params
+      params.require(:content).permit(:lang, :title, :body)
     end
 
 

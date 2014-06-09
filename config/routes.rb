@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
 
   get '/:locale' => 'pages#home'
-  root 'pages#home'
+  #root 'pages#home'
+  root 'pages#dr'
   # get '/' => 'pages#index'
   scope "(:locale)", locale: /ru|en/ do
     get '/:id' => 'pages#show', :as => :page
