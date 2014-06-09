@@ -20,11 +20,12 @@
   ]
 
   ctrl.controller 'PagesNewCtrl', ["$scope", "$location", "Page", "TransliterateService", PagesNewCtrl = ($scope, $location, Page, TransliterateService) ->
+    $scope.new = 1
     $scope.$watch "page.title", (val) ->
       return if val is undefined
       $scope.page.path = TransliterateService(val)
       return
-    $scope.pageSent = ->
+    $scope.pageEdit = ->
       page = Page.new($scope.page)
       page.success (res) ->
         $scope.page = res
@@ -35,15 +36,18 @@
 
   ctrl.controller 'PagesEditCtrl', ["$scope", "$routeParams", "Page", "$location", PagesEditCtrl = ($scope, $routeParams, Page, $location) ->
     id = $routeParams.id
-    page = Page.find(id)
-    page.success (res) ->
+    Page.find(id).success (res) ->
       $scope.page = res
       return
-    $scope.pageSent = ->
-      page = Page.edit(id, $scope.page)
+    $scope.findPage = (lang) ->
+      Page.find($scope.page.path, lang).success (res) ->
+        $scope.page = res
+        return
+    $scope.pageEdit = ->
+      page = Page.edit($scope.page.path, $scope.page.lang, $scope.page)
       page.success (res) ->
         $scope.page = res
-        $location.path "/pages/#{id}"
+        $location.path "/pages/#{res.id}"
         return
       page.error ->
         $location.path "/pages/"

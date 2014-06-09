@@ -1,15 +1,28 @@
 module Staff
   class PagesController < ApplicationController
     before_action :authenticate_admin!
-    before_action :set_page, only: [:show, :edit, :update, :destroy]
+    before_action :set_page, only: [:show, :edit, :destroy]
 
     def dashboard
       # render :json => {'s' => 0}
     end
 
     def index
-      @pages = Page.all
+      @pages = Page.all.order(path: :asc)
+      # @pages = Page.all.where(lang: 'ru')
       render :json => Oj.dump(@pages, mode: :compat)
+    end
+
+    def find_lang
+      @page = Page.where(path: params[:id], lang: params[:lang]).take
+      if @page.blank?
+        @pageRu = Page.where(path: params[:id], lang: 'ru').take
+        @page = Page.new(path: @pageRu.path, title: @pageRu.title, lang: 'en')
+        @page.save
+        render :json => Oj.dump(@page, mode: :compat)
+      else
+        render :json => Oj.dump(@page, mode: :compat)
+      end
     end
 
     def show
@@ -31,6 +44,7 @@ module Staff
     end
 
     def update
+      @page = Page.where(path: params[:id], lang: params[:lang]).take
       if @page.update(page_params)
         render :json => @page
       else

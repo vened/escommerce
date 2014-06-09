@@ -5,8 +5,8 @@
     <form role="form" action="">
         <div class="panel-body">
             <div class="form-group">
- r               <label for="title">Язык</label>
-                <select name="pageLang" ng-init="page.lang = 'ru'" ng-model="page.lang">
+                <label for="title">Язык</label>
+                <select name="pageLang" ng-init="page.lang = 'ru'" ng-model="page.lang" ng-change="findPage(page.lang)">
                     <option value="ru">ru</option>
                     <option value="en">en</option>
                 </select>
@@ -26,7 +26,8 @@
             </div>
         </div>
         <div class="panel-footer">
-            <button type="submit" class="btn btn-primary" ng-click="pageSent()">Сохранить</button>
+            <button type="submit" class="btn btn-primary" ng-click="pageEdit()">Сохранить</button>
+            <!--<button type="submit" class="btn btn-primary" ng-click="pageNew()" ng-show="new == 1">Сохранить</button>-->
         </div>
     </form>
 </div>
