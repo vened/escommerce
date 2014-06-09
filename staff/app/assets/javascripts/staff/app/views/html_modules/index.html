@@ -14,6 +14,7 @@
             <th>#</th>
             <th>Системное имя</th>
             <th>Заголовок на сайте</th>
+            <th>Html</th>
             <th></th>
         </tr>
         </thead>
@@ -22,6 +23,7 @@
             <td><a href="#/html_modules/{{ module.id }}">{{ module.id }}</a></td>
             <td>{{ module.name }}</td>
             <td>{{ module.title }}</td>
+            <td>{{ module.body }}</td>
             <td>
                 <a class="btn btn-success" href="#/html_modules/{{ module.id }}/edit">редактировать</a>
                 <a class="btn btn-danger" href="#/html_modules/{{ module.id }}/destroy">destroy</a>

@@ -1,7 +1,17 @@
 <div class="row module">
     <div class="col-xs-12">
-        <h1>{{ htmlModule.title }}</h1>
-        <div ng-bind-html="htmlModule.body"></div>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Html модуль - <strong>{{ htmlModule.title }}</strong></h3>
+            </div>
+            <div class="panel-body">
+                <div ng-bind-html="htmlModule.body"></div>
+            </div>
+            <div class="panel-footer">
+                <a class="btn btn-success" href="#/html_modules/{{ htmlModule.id }}/edit">редактировать</a>
+                <a class="btn btn-danger" href="#/html_modules/{{ htmlModule.id }}/destroy">destroy</a>
+            </div>
+        </div>
     </div>
 </div>
 

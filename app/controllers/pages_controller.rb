@@ -14,7 +14,13 @@ class PagesController < ApplicationController
 
 
   def home
-    @page = Page.find_by_path('home')
+    if params[:locale]
+      curent_lang = params[:locale]
+    else
+      curent_lang = locale
+    end
+    # @page = Page.find(path: 'home')
+    @page = Page.where(path: 'home', lang: curent_lang).take
     @modules = @page.html_modules
   end
 
