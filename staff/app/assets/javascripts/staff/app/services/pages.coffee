@@ -10,14 +10,19 @@ cmn.factory "Page", [ "$http", ($http) ->
       lang = '' unless lang
       $http.get("/staff/pages/#{id}/#{lang}")
 
+    findEdit: (id, lang) ->
+      return unless id
+      lang = '' unless lang
+      $http.get("/staff/pages/#{id}/#{lang}/edit")
+
     all: () ->
       $http.get("/staff/pages/")
 
     new: (obj) ->
       $http.post("/staff/pages/", obj)
 
-    edit: (id, lang, obj) ->
-      $http.put("/staff/pages/#{id}/#{lang}", obj)
+    edit: (id, obj) ->
+      $http.put("/staff/pages/#{id}", obj)
 
     destroy: (id) ->
       $http.delete("/staff/pages/#{id}")

@@ -10,7 +10,8 @@ Staff::Engine.routes.draw do
 
   root to: 'pages#dashboard'
 
-  get 'pages/:id/:lang' => 'pages#find_lang'
+  get 'pages/:id/:lang' => 'pages#show'
+  get 'pages/:id/:lang/edit' => 'pages#edit'
   put 'pages/:id/:lang' => 'pages#update'
 
   resources :pages

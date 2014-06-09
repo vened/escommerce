@@ -12,49 +12,52 @@
   ]
 
   ctrl.controller 'PagesShowCtrl', ["$scope", "$routeParams", "Page", PagesShowCtrl = ($scope, $routeParams, Page) ->
-    page = Page.find($routeParams.id)
-    page.success (res) ->
-      $scope.page = res
+    $scope.setLang = (lang) ->
+      $scope.lang = lang
+      PageLoad($routeParams.id, lang)
       return
+    PageLoad = (id, lang) ->
+      Page.find(id, lang).success (res) ->
+        $scope.obj = res
+        return
+    $scope.setLang('ru')
     return
   ]
 
-  ctrl.controller 'PagesNewCtrl', ["$scope", "$location", "Page", "TransliterateService", PagesNewCtrl = ($scope, $location, Page, TransliterateService) ->
-    $scope.new = 1
-    $scope.$watch "page.title", (val) ->
-      return if val is undefined
-      $scope.page.path = TransliterateService(val)
-      return
-    $scope.pageEdit = ->
-      page = Page.new($scope.page)
-      page.success (res) ->
-        $scope.page = res
-        $location.path "/pages/"
+  ctrl.controller 'PagesNewCtrl',
+    ["$scope", "$location", "Page", "TransliterateService", PagesNewCtrl = ($scope, $location, Page, TransliterateService) ->
+      $scope.obj = {}
+      $scope.obj.content = {}
+      $scope.obj.content.lang = 'ru'
+      $scope.$watch "obj.content.title", (val) ->
+        return if val is undefined
+        $scope.obj.page.path = TransliterateService(val)
         return
-    return
-  ]
+      $scope.pageEdit = ->
+        page = Page.new($scope.obj)
+        page.success () ->
+          $location.path "/pages/"
+          return
+      return
+    ]
 
   ctrl.controller 'PagesEditCtrl', ["$scope", "$routeParams", "Page", "$location", PagesEditCtrl = ($scope, $routeParams, Page, $location) ->
-    id = $routeParams.id
-    Page.find(id).success (res) ->
-      $scope.page = res
+    Page.findEdit($routeParams.id, 'ru' ).success (res) ->
+      $scope.obj = res
       return
     $scope.findPage = (lang) ->
-      Page.find($scope.page.path, lang).success (res) ->
-        $scope.page = res
+      Page.findEdit($routeParams.id, lang).success (res) ->
+        $scope.obj = res
         return
     $scope.pageEdit = ->
-      page = Page.edit($scope.page.path, $scope.page.lang, $scope.page)
-      page.success (res) ->
-        $scope.page = res
+      Page.edit($scope.obj.page.id, $scope.obj).success (res) ->
         $location.path "/pages/#{res.id}"
-        return
-      page.error ->
-        $location.path "/pages/"
         return
     return
   ]
-  
+
+
+
   ctrl.controller 'PagesDestroyCtrl', ["$scope", "$routeParams", "Page", "$location", PagesDestroyCtrl = ($scope, $routeParams, Page, $location) ->
     $scope.destroy = (arg) ->
       if arg is true

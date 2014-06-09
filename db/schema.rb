@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 6) do
 
   create_table "pages", force: true do |t|
     t.string   "path"
+    t.string   "name"
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"

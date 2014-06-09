@@ -7,50 +7,56 @@ module Staff
       # render :json => {'s' => 0}
     end
 
+
     def index
       @pages = Page.all.order(path: :asc)
-      # @pages = Page.all.where(lang: 'ru')
       render :json => Oj.dump(@pages, mode: :compat)
     end
 
-    def find_lang
-      @page = Page.where(path: params[:id], lang: params[:lang]).take
-      if @page.blank?
-        @pageRu = Page.where(path: params[:id], lang: 'ru').take
-        @page = Page.new(path: @pageRu.path, title: @pageRu.title, lang: 'en')
-        @page.save
-        render :json => Oj.dump(@page, mode: :compat)
-      else
-        render :json => Oj.dump(@page, mode: :compat)
-      end
-    end
 
     def show
       @page = Page.find(params[:id])
-      render :json => Oj.dump(@page, mode: :compat)
+      @content = @page.contents.where(lang: params[:lang]).first
+      render :json => Oj.dump({page: @page, content: @content}, mode: :compat)
     end
+
+
+    def edit
+      @page = Page.find(params[:id])
+      @content = @page.contents.where(lang: params[:lang]).first
+      if @content.blank?
+        @content = @page.contents.create!(lang: params[:lang], title: 'blank')
+      end
+      render :json => Oj.dump({page: @page, content: @content}, mode: :compat)
+    end
+
 
     def new
       @page = Page.new
     end
 
+
     def create
       @page = Page.new(page_params)
       if @page.save && @page.contents.create!(content_params)
-          render :json => @page
+        render :json => @page
       else
         render :json => {page: @page.errors, cont: @page.contents.errors}
       end
     end
 
+
     def update
-      @page = Page.where(path: params[:id], lang: params[:lang]).take
-      if @page.update(page_params)
+      @page = Page.where(id: params[:page][:id]).take
+      @content = @page.contents.where(lang: params[:content][:lang]).first
+      if @page.update(page_params) && @content.update(content_params)
         render :json => @page
       else
         render :json => @page.errors
       end
+      #render :json => params
     end
+
 
     def destroy
       if @page.destroy
@@ -67,8 +73,9 @@ module Staff
     end
 
     def page_params
-      params.require(:page).permit(:path)
+      params.require(:page).permit(:path, :name)
     end
+
     def content_params
       params.require(:content).permit(:lang, :title, :body)
     end

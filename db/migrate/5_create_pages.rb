@@ -2,6 +2,7 @@ class CreatePages < ActiveRecord::Migration
   def change
     create_table :pages do |t|
       t.string :path
+      t.string :name
       t.integer :parent_id
       t.integer :lft
       t.integer :rgt
