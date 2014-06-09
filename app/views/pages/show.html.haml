@@ -5,8 +5,8 @@
 .row
   .col-xs-3= raw module_to(@modules, 'left')
   .col-xs-6
-    %h1= @page.title
-    %div= raw @page.body
+    %h1= @content.title
+    %p= raw @content.body
   .col-xs-3= raw module_to(@modules, 'right')
 
 %hr
