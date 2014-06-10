@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     get ':id' => 'pages#show', :as => :page
   end
 
+  scope "(:locale)", locale: /ru|en/ do
+    get '*section/:id' => 'pages#show'
+  end
+
 
   #scope "(:locale)", locale: /ru|en/ do
   #  get ':id' => 'pages#show', :as => :page
