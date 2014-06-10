@@ -12,6 +12,7 @@ class Page < ActiveRecord::Base
 
   def parent_path
     self_and_ancestors.pluck(:path).join("/")
+    logger.info "-----------------------#{self_and_ancestors.pluck(:path).join("/")}"
   end
 
   def to_param

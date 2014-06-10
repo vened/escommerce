@@ -24,10 +24,13 @@ module Staff
     def edit
       @page = Page.find(params[:id])
       @content = @page.contents.where(lang: params[:lang]).first
+
+      @pages = Page.all
+
       if @content.blank?
         @content = @page.contents.create!(lang: params[:lang], title: 'blank')
       end
-      render :json => Oj.dump({page: @page, content: @content}, mode: :compat)
+      render :json => Oj.dump({page: @page, content: @content, pages: @pages}, mode: :compat)
     end
 
 
@@ -73,7 +76,7 @@ module Staff
     end
 
     def page_params
-      params.require(:page).permit(:path, :name)
+      params.require(:page).permit(:path, :name, :parent_id)
     end
 
     def content_params

@@ -7,6 +7,7 @@
   .col-xs-6
     %h1= @content.title
     %p= raw @content.body
+    = select_tag 'parent_id', options_for_select(nested_set_options(Page) {|i| "#{'-' * i.level} #{i.name}" } )
   .col-xs-3= raw module_to(@modules, 'right')
 
 %hr
