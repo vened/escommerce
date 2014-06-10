@@ -3,6 +3,8 @@ class Page < ActiveRecord::Base
   has_and_belongs_to_many :html_modules
   has_many :contents, :dependent => :destroy
   acts_as_nested_set
+  
+  before_update :rebuild_path
 
   validates :path,
             :uniqueness => true,
@@ -10,18 +12,17 @@ class Page < ActiveRecord::Base
             :format => {:with => /\A[a-zA-Z0-9\-]+\z/, :json => "Допускается только латиница и/или цифры"}
   validates_associated :contents
 
+
+  def to_param
+    "#{path}"
+  end
+  
+  def rebuild_path
+    self.path = self_and_ancestors.pluck(:path).join("/")
+  end
+
   def parent_path
     self_and_ancestors.pluck(:path).join("/")
   end
-
-  def to_param
-    "#{parent_path}"
-  end
-
-  #def before_save(record)
-  #self.title = ActiveSupport::JSON.encode(page_params[:title])
-  #record.title = ActiveSupport::JSON.encode({:p => 123, :r => 3543})
-  #end
-
 
 end
