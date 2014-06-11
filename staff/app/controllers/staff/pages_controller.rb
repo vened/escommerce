@@ -52,16 +52,13 @@ module Staff
 
 
     def update
-      #params[:page][:slug] = params[:page][:path]
       @page = Page.where(id: params[:page][:id]).take
-      #@page.set_page(params[:page])
       @content = @page.contents.where(lang: params[:content][:lang]).first
       if @page.update(page_params) && @content.update(content_params)
         render :json => @page
       else
         render :json => @page.errors
       end
-      #render :json => params
     end
 
 

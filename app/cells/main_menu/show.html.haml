@@ -2,7 +2,7 @@
   -@pages.each do |page|
     -if content = page.contents.find_by(lang: locale)
       %li{:class => params[:id] == page.path ? 'active': ''}
-        =link_to page_path(:id => page.path) do
+        =link_to page_path(:id => page.slug) do
           %span= content.title  
 
 #showcase
