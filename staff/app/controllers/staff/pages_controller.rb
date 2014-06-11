@@ -9,7 +9,7 @@ module Staff
 
 
     def index
-      @pages = Page.all.order(path: :asc)
+      @pages = Page.all.order(created_at: :asc)
       render :json => Oj.dump(@pages, mode: :compat)
     end
 
@@ -35,12 +35,14 @@ module Staff
 
 
     def new
-      @page = Page.new
+      @pages = Page.all
+      render :json => Oj.dump({pages: @pages}, mode: :compat)
     end
 
 
     def create
       @page = Page.new(page_params)
+      @page.set_page(params[:page])
       if @page.save && @page.contents.create!(content_params)
         render :json => @page
       else
@@ -50,7 +52,9 @@ module Staff
 
 
     def update
+      #params[:page][:slug] = params[:page][:path]
       @page = Page.where(id: params[:page][:id]).take
+      #@page.set_page(params[:page])
       @content = @page.contents.where(lang: params[:content][:lang]).first
       if @page.update(page_params) && @content.update(content_params)
         render :json => @page
@@ -76,7 +80,7 @@ module Staff
     end
 
     def page_params
-      params.require(:page).permit(:path, :name, :parent_id)
+      params.require(:page).permit(:path, :slug, :name, :parent_id)
     end
 
     def content_params

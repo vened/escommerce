@@ -26,16 +26,17 @@
 
   ctrl.controller 'PagesNewCtrl',
     ["$scope", "$location", "Page", "TransliterateService", PagesNewCtrl = ($scope, $location, Page, TransliterateService) ->
-      $scope.obj = {}
-      $scope.obj.content = {}
-      $scope.obj.content.lang = 'ru'
+      Page.new().success (res) ->
+        $scope.obj = res ? res || {}
+        $scope.obj.content = {}
+        $scope.obj.content.lang = 'ru'
+        return
       $scope.$watch "obj.content.title", (val) ->
         return if val is undefined
         $scope.obj.page.path = TransliterateService(val)
         return
       $scope.pageEdit = ->
-        page = Page.new($scope.obj)
-        page.success () ->
+        Page.create($scope.obj).success () ->
           $location.path "/pages/"
           return
       return
@@ -51,7 +52,7 @@
         return
     $scope.pageEdit = ->
       Page.edit($scope.obj.page.id, $scope.obj).success (res) ->
-        $location.path "/pages/#{res.id}"
+        $location.path "/pages/"
         return
     return
   ]

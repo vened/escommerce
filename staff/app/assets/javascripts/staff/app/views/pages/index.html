@@ -13,6 +13,7 @@
         <tr>
             <th>#</th>
             <th>Path</th>
+            <th>Full url</th>
             <th>Системное имя</th>
             <th>Управление</th>
         </tr>
@@ -21,6 +22,7 @@
         <tr ng-repeat="page in pages">
             <td><a href="#/pages/{{ page.id }}">{{ page.id }}</a></td>
             <td>{{ page.path }}</td>
+            <td>{{ page.slug }}</td>
             <td>{{ page.name }}</td>
             <td>
                 <a class="btn btn-success" href="#/pages/{{ page.id }}/edit">редактировать</a>

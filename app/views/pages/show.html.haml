@@ -1,15 +1,12 @@
 
-.row
-  .col-xs-12= raw module_to(@modules, 'top')
+#Aside
+  = debug @children
+  = raw module_to(@modules, 'left')
 
-.row
-  .col-xs-3= raw module_to(@modules, 'left')
-  .col-xs-6
+#MainCol
+  .text.clearFix
+    = raw module_to(@modules, 'top')
     %h1= @content.title
     %p= raw @content.body
     %p= @page.parent_path
-  .col-xs-3= raw module_to(@modules, 'right')
-
-%hr
-.row
-  .col-xs-12= raw module_to(@modules, 'partners')
+    = raw module_to(@modules, 'partners')

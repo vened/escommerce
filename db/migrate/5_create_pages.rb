@@ -2,6 +2,7 @@ class CreatePages < ActiveRecord::Migration
   def change
     create_table :pages do |t|
       t.string :path
+      t.string :slug
       t.string :name
       t.integer :parent_id
       t.integer :lft
@@ -10,6 +11,7 @@ class CreatePages < ActiveRecord::Migration
       t.timestamps
     end
     add_index :pages, :path
+    add_index :pages, :slug
     add_index :pages, :parent_id
     add_index :pages, :lft
     add_index :pages, :rgt

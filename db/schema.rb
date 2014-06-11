@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 6) do
 
   create_table "pages", force: true do |t|
     t.string   "path"
+    t.string   "slug"
     t.string   "name"
     t.integer  "parent_id"
     t.integer  "lft"
@@ -60,6 +61,7 @@ ActiveRecord::Schema.define(version: 6) do
   add_index "pages", ["parent_id"], name: "index_pages_on_parent_id", using: :btree
   add_index "pages", ["path"], name: "index_pages_on_path", using: :btree
   add_index "pages", ["rgt"], name: "index_pages_on_rgt", using: :btree
+  add_index "pages", ["slug"], name: "index_pages_on_slug", using: :btree
 
   create_table "staff_admins", force: true do |t|
     t.string   "email",                  default: "", null: false

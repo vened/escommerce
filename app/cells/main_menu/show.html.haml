@@ -1,8 +1,8 @@
 %ul#TopMenu.menu_top
   -@pages.each do |page|
     -if content = page.contents.find_by(lang: locale)
-      %li{:class => params[:id] == page.parent_path ? 'active': ''}
-        =link_to page_path(:id => page.parent_path) do
+      %li{:class => params[:id] == page.path ? 'active': ''}
+        =link_to page_path(:id => page.path) do
           %span= content.title  
 
 #showcase

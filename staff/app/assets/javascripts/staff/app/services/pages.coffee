@@ -18,7 +18,10 @@ cmn.factory "Page", [ "$http", ($http) ->
     all: () ->
       $http.get("/staff/pages/")
 
-    new: (obj) ->
+    new: () ->
+      $http.get("/staff/pages/new")
+
+    create: (obj) ->
       $http.post("/staff/pages/", obj)
 
     edit: (id, obj) ->

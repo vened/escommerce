@@ -26,9 +26,11 @@ class PagesController < ApplicationController
 
 
   def show
-    @content = @page.contents.find_by(lang: locale)
+    if @page
+      @content = @page.contents.find_by(lang: locale)
+    end
     @modules = @page.html_modules
-    @pg = Page.all
+    @children = @page.children
   end
 
 

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /ru|en/ do
     root 'pages#home'
     get ':id' => 'pages#show', :as => :page
+    #get '*section/:id' => 'pages#show'
   end
 
   scope "(:locale)", locale: /ru|en/ do

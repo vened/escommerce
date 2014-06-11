@@ -3,8 +3,10 @@ class Page < ActiveRecord::Base
   has_and_belongs_to_many :html_modules
   has_many :contents, :dependent => :destroy
   acts_as_nested_set
-  
-  before_update :rebuild_path
+
+  #after_save :build_slug
+  #after_create :rebuild_slug
+  before_update :rebuild_slug
 
   validates :path,
             :uniqueness => true,
@@ -16,9 +18,24 @@ class Page < ActiveRecord::Base
   def to_param
     "#{path}"
   end
-  
-  def rebuild_path
-    self.path = self_and_ancestors.pluck(:path).join("/")
+
+  def set_page(params)
+    if params[:parent_id]
+      @root = Page.find(params[:parent_id]).slug
+      self.slug = "#{@root}/#{params[:path]}"
+    else
+      self.slug = "#{params[:path]}"
+    end
+  end
+
+
+  #after_create do
+  #  @slug = "---------------#{self_and_ancestors.pluck(:path).join("/")}-----#{params[:path]}"
+  #  self.update(:slug => @slug)
+  #end
+
+  def rebuild_slug
+    self.slug = self_and_ancestors.pluck(:path).join("/")
   end
 
   def parent_path
