@@ -3,23 +3,30 @@
 </div>
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h2 class="panel-title">{{title}}</h2>
+        <h2 class="panel-title">{{ title }}</h2>
     </div>
     <form role="form" action="">
         <div class="panel-body">
+            <div class="form-group" ng-hide="lang_disabled">
+                <label for="lang">Язык</label>
+                <select id="lang" name="moduleLang" ng-model="obj.html_module_language.lang" ng-change="findHtmlModule(obj.html_module_language.lang)">
+                    <option value="ru">ru</option>
+                    <option value="en">en</option>
+                </select>
+            </div>
             <div class="form-group">
                 <label for="name">Системное имя</label>
-                <input type="text" class="form-control" id="name" placeholder="Системное имя" name="moduleName" ng-model="module.name">
+                <input type="text" class="form-control" id="name" placeholder="Системное имя" name="moduleName" ng-model="obj.html_module.name">
             </div>
             <div class="form-group">
                 <label for="title">Заголовок</label>
-                <input type="text" class="form-control" id="title" placeholder="Заголовок" name="moduleTitle" ng-model="module.title">
+                <input type="text" class="form-control" id="title" placeholder="Заголовок" name="moduleTitle" ng-model="obj.html_module_language.title">
             </div>
             <div class="form-group">
                 <label>HTML код</label>
-                <textarea class="form-control" rows="20" ng-model="module.body"></textarea>
-                <!--<textarea ui-codemirror="editorOptions" ng-model="module.body"></textarea>-->
-                <!--<div text-angular ng-model="module.body"></div>-->
+                <textarea class="form-control" rows="20" ng-model="obj.html_module_language.body"></textarea>
+                <!--<textarea ui-codemirror="editorOptions" ng-model="obj.html_module_language.body"></textarea>-->
+                <!--<div text-angular ng-model="obj.html_module_language.body"></div>-->
             </div>
         </div>
         <div class="panel-footer">

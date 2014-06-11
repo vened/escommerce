@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 6) do
+ActiveRecord::Schema.define(version: 7) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 6) do
   end
 
   add_index "contents", ["page_id"], name: "index_contents_on_page_id", using: :btree
+
+  create_table "html_module_languages", force: true do |t|
+    t.integer "html_module_id"
+    t.string  "lang"
+    t.string  "title"
+    t.text    "body"
+  end
+
+  add_index "html_module_languages", ["html_module_id"], name: "index_html_module_languages_on_html_module_id", using: :btree
 
   create_table "html_modules", force: true do |t|
     t.string "name"

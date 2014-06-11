@@ -15,17 +15,29 @@
 
   ctrl.controller 'HtmlModulesShowCtrl',
     ["$scope", "$routeParams", "HtmlModule", HtmlModulesShowCtrl = ($scope, $routeParams, HtmlModule) ->
-      HtmlModule.find($routeParams.id).success (res) ->
-        $scope.htmlModule = res.module
-        $scope.pages = res.pages
-        $scope.linkedPages = res.linkedPages
+      $scope.setLang = (lang) ->
+        $scope.lang = lang
+        HtmlModuleLoad($routeParams.id, lang)
         return
+      HtmlModuleLoad = (id, lang) ->
+        HtmlModule.find(id, lang).success (res) ->
+          $scope.htmlModule = res.module
+          $scope.htmlModuleLanguage = res.html_module_language
+          $scope.pages = res.pages
+          $scope.linkedPages = res.linkedPages
+          return
+      $scope.setLang('ru')
       return
     ]
 
 
   ctrl.controller 'HtmlModulesNewCtrl',
     ["$scope", "$location", "HtmlModule", HtmlModulesNewCtrl = ($scope, $location, HtmlModule) ->
+      $scope.title = "Создание модуля"
+      $scope.lang_disabled = true
+      $scope.obj = {}
+      $scope.obj.html_module_language = {}
+      $scope.obj.html_module_language.lang = 'ru'
       $scope.editorOptions = {
         height: "500px"
         lineNumbers: true
@@ -33,7 +45,7 @@
         mode: 'html'
       }
       $scope.moduleSent = ->
-        HtmlModule.new($scope.module)
+        HtmlModule.new($scope.obj)
         .success () ->
             $location.path "/html_modules/"
             return
@@ -52,11 +64,15 @@
         lineWrapping: true
         mode: 'html'
       }
-      HtmlModule.find($routeParams.id).success (res) ->
-        $scope.module = res.module
+      HtmlModule.findEdit($routeParams.id, 'ru').success (res) ->
+        $scope.obj = res
         return
+      $scope.findHtmlModule = (lang) ->
+        HtmlModule.findEdit($routeParams.id, lang).success (res) ->
+          $scope.obj = res
+          return
       $scope.moduleSent = ->
-        HtmlModule.edit($routeParams.id, $scope.module)
+        HtmlModule.edit($routeParams.id, $scope.obj)
         .success () ->
             $location.path "/html_modules/#{$routeParams.id}"
             return

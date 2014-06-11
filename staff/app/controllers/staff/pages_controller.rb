@@ -24,9 +24,7 @@ module Staff
     def edit
       @page = Page.find(params[:id])
       @content = @page.contents.where(lang: params[:lang]).first
-
       @pages = Page.all
-
       if @content.blank?
         @content = @page.contents.create!(lang: params[:lang], title: 'blank')
       end
