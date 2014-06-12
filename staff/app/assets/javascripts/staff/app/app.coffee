@@ -12,6 +12,7 @@
     "PagesCommon"
     "HtmlModulesCommon"
     "HelpersServices"
+    "JobsCommon"
 
     "RootDirectives"
     "SidebarDirectives"
@@ -19,6 +20,7 @@
     "DashboardController"
     "PagesController"
     "HtmlModulesIndexController"
+    "JobsController"
   ])
   
   return)()

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 7) do
+ActiveRecord::Schema.define(version: 8) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,18 @@ ActiveRecord::Schema.define(version: 7) do
 
   add_index "html_modules_pages", ["html_module_id"], name: "index_html_modules_pages_on_html_module_id", using: :btree
   add_index "html_modules_pages", ["page_id"], name: "index_html_modules_pages_on_page_id", using: :btree
+
+  create_table "jobs", force: true do |t|
+    t.string   "tag_path"
+    t.string   "tag_text"
+    t.string   "name"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "jobs", ["tag_path"], name: "index_jobs_on_tag_path", using: :btree
+  add_index "jobs", ["tag_text"], name: "index_jobs_on_tag_text", using: :btree
 
   create_table "pages", force: true do |t|
     t.string   "path"

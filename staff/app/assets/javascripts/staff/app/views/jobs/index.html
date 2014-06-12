@@ -1,0 +1,34 @@
+<div class="row pagesHead">
+    <div class="col-xs-8">
+        <h2>Вакансии</h2>
+    </div>
+    <div class="col-xs-4 text-right">
+        <a href="#/jobs/new" class="btn btn-primary">Создать вакансию</a>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>tag_path</th>
+            <th>tag_text</th>
+            <th>Заголовок</th>
+            <th>Управление</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="job in jobs">
+            <td><a href="#/jobs/{{ job.id }}">{{ job.id }}</a></td>
+            <td>{{ job.tag_path }}</td>
+            <td>{{ job.tag_text }}</td>
+            <td>{{ job.name }}</td>
+            <td>
+                <a class="btn btn-success" href="#/jobs/{{ job.id }}/edit">редактировать</a>
+                <a class="btn btn-danger" href="#/jobs/{{ job.id }}/destroy">destroy</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

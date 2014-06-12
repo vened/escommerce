@@ -1,0 +1,35 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2 class="panel-title">Создание/редактирование вакансии</h2>
+    </div>
+    <form role="form" action="">
+        <div class="panel-body">
+            <div class="form-group">
+                <label for="name">Заголовок вакансии</label>
+                <input type="text" class="form-control" id="name" name="jobTitle" ng-model="job.name">
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label for="title">Категория</label>
+                        <input type="text" class="form-control" id="title" name="jobTagName" ng-model="job.tag_text">
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label for="path">Url категории</label>
+                        <input type="text" class="form-control" id="path" name="jobTagPath" ng-model="job.tag_path">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Описание</label>
+
+                <div text-angular ng-model="job.body"></div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-primary" ng-click="jobSend()">Сохранить</button>
+        </div>
+    </form>
+</div>
