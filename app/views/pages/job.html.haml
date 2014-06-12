@@ -15,3 +15,11 @@
     %h1= @content.title
     %p= raw @content.body
     = raw module_to(@modules, 'partners')
+
+
+-content_for :pathway do
+  #showcase
+    %span.breadcrumbs.pathway
+      =link_to @home.contents.find_by(lang: locale).title, "/#{locale}", :class => "pathway"
+      |
+      Вакансии

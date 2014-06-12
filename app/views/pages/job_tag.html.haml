@@ -18,3 +18,14 @@
         %dt
           =link_to job.name,"/jobs/#{job.tag_path}/#{job.id}"
     = raw module_to(@modules, 'partners')
+
+
+
+-content_for :pathway do
+  #showcase
+    %span.breadcrumbs.pathway
+      =link_to @home.contents.find_by(lang: locale).title, "/#{locale}", :class => "pathway"
+      |
+      =link_to "Вакансии", "/jobs/", :class => "pathway"
+      |
+      =@current_jobs.first.tag_text

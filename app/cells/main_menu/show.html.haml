@@ -3,10 +3,4 @@
     -if content = page.contents.find_by(lang: locale)
       %li{:class => params[:id] == page.path ? 'active': ''}
         =link_to page_path(:id => page.slug) do
-          %span= content.title  
-
-#showcase
-  %span.breadcrumbs.pathway
-    =link_to "Главная", "/#{locale}", :class => "pathway"
-    |
-    dfcd
+          %span= content.title

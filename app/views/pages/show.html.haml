@@ -17,3 +17,19 @@
     %p= raw @content.body
     %p= @page.parent_path
     = raw module_to(@modules, 'partners')
+
+
+-content_for :pathway do
+  -if @page.parent
+    -@parent = @page.parent.contents.find_by(lang: locale)
+  =debug @parent
+  #showcase
+    %span.breadcrumbs.pathway
+      =link_to @home.contents.find_by(lang: locale).title, "/#{locale}", :class => "pathway"
+      |
+      -if @parent
+        =link_to @parent.title, "/#{locale}/#{@page.slug}", :class => "pathway"
+        |
+      =@content.title
+
+

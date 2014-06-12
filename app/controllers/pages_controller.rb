@@ -20,6 +20,7 @@ class PagesController < ApplicationController
 
 
   def show
+    @home = Page.where(path: 'home').take
     if @page
       @content = @page.contents.find_by(lang: locale)
     end
@@ -48,6 +49,7 @@ class PagesController < ApplicationController
   end
 
   def set_jobs
+    @home = Page.where(path: 'home').take
     @jobs = Job.select(:tag_text, :tag_path).distinct
     @page = Page.find_by_path("jobs")
     if @page
