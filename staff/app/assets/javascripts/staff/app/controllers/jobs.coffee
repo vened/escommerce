@@ -29,17 +29,13 @@
     return
   ]
 
-  ctrl.controller 'PagesEditCtrl', ["$scope", "$routeParams", "Page", "$location", PagesEditCtrl = ($scope, $routeParams, Page, $location) ->
-    Page.findEdit($routeParams.id, 'ru').success (res) ->
-      $scope.obj = res
+  ctrl.controller 'JobsEditCtrl', ["$scope", "$routeParams", "Job", "$location", JobsEditCtrl = ($scope, $routeParams, Job, $location) ->
+    Job.find($routeParams.id).success (res) ->
+      $scope.job = res
       return
-    $scope.findPage = (lang) ->
-      Page.findEdit($routeParams.id, lang).success (res) ->
-        $scope.obj = res
-        return
-    $scope.pageEdit = ->
-      Page.edit($scope.obj.page.id, $scope.obj).success (res) ->
-        $location.path "/pages/"
+    $scope.jobSend = ->
+      Job.edit($scope.job.id, $scope.job).success (res) ->
+        $location.path "/jobs/"
         return
     return
   ]
