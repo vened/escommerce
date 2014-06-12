@@ -52,12 +52,11 @@
 
 
 
-  ctrl.controller 'PagesDestroyCtrl', ["$scope", "$routeParams", "Page", "$location", PagesDestroyCtrl = ($scope, $routeParams, Page, $location) ->
-    $scope.destroy = (arg) ->
-      if arg is true
-        page = Page.destroy($routeParams.id)
-        page.success ->
-          $location.path "/pages/"
+  ctrl.controller 'JobsDestroyCtrl', ["$scope", "$routeParams", "Job", "$location", JobsDestroyCtrl = ($scope, $routeParams, Job, $location) ->
+    $scope.destroy = () ->
+      Job.destroy($routeParams.id).success ->
+        $location.path "/jobs/"
+        return
     return
   ]
 

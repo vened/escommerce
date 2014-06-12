@@ -1,7 +1,7 @@
 module Staff
   class JobsController < ApplicationController
     before_action :authenticate_admin!
-    #before_action :set_page, only: [:show, :edit, :destroy]
+    before_action :set_job, only: [:destroy]
 
     def index
       @jobs = Job.all
@@ -47,22 +47,23 @@ module Staff
     #    render :json => @page.errors
     #  end
     #end
-    #
-    #
-    #def destroy
-    #  if @page.destroy
-    #    @pages = Page.all
-    #    render :json => {'d' => 1, "pages" => @pages}
-    #  else
-    #    render :json => {'d' => 0}
-    #  end
-    #end
 
-    #private
-    #def set_page
-    #  @page = Page.find(params[:id])
-    #end
-    #
+
+    def destroy
+      if @job.destroy
+        render :json => {'d' => 1}
+      else
+        render :json => {'d' => 0}
+      end
+    end
+
+
+    private
+
+    def set_job
+      @job = Job.find(params[:id])
+    end
+
     def job_params
       params.require(:job).permit(:tag_path, :tag_text, :name, :body)
     end
