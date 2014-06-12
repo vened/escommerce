@@ -10,16 +10,10 @@
     return
   ]
 
-  ctrl.controller 'PagesShowCtrl', ["$scope", "$routeParams", "Page", PagesShowCtrl = ($scope, $routeParams, Page) ->
-    $scope.setLang = (lang) ->
-      $scope.lang = lang
-      PageLoad($routeParams.id, lang)
+  ctrl.controller 'JobsShowCtrl', ["$scope", "$routeParams", "Job", JobsShowCtrl = ($scope, $routeParams, Job) ->
+    Job.find($routeParams.id).success (res) ->
+      $scope.job = res
       return
-    PageLoad = (id, lang) ->
-      Page.find(id, lang).success (res) ->
-        $scope.obj = res
-        return
-    $scope.setLang('ru')
     return
   ]
 

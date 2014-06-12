@@ -1,18 +1,16 @@
 module Staff
   class JobsController < ApplicationController
     before_action :authenticate_admin!
-    before_action :set_job, only: [:destroy]
+    before_action :set_job, only: [:show, :destroy]
 
     def index
       @jobs = Job.all
       render :json => Oj.dump(@jobs, mode: :compat)
     end
 
-    #def show
-    #  @page = Page.find(params[:id])
-    #  @content = @page.contents.where(lang: params[:lang]).first
-    #  render :json => Oj.dump({page: @page, content: @content}, mode: :compat)
-    #end
+    def show
+      render :json => Oj.dump(@job, mode: :compat)
+    end
     #
     #def edit
     #  @page = Page.find(params[:id])

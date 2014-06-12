@@ -3,21 +3,13 @@
 </div>
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">{{ obj.page.name }}</h3>
+        <h3 class="panel-title"><b>{{ job.tag_text }}</b> | {{ job.name }}</h3>
     </div>
     <div class="panel-body">
-        <h2>
-            {{ obj.content.title }}
-        </h2>
-        <div ng-bind-html="obj.content.body"></div>
+        <div ng-bind-html="job.body"></div>
     </div>
     <div class="panel-footer">
-        <a class="btn btn-success" href="#/pages/{{ obj.page.id }}/edit">редактировать</a>
-        <a class="btn btn-danger" href="#/pages/{{ obj.page.id }}/destroy">destroy</a>
-
-        <div class="btn-group">
-            <span class="btn btn-success" ng-class="{'active' : lang == 'ru'}" ng-click="setLang('ru')">RUS</span>
-            <span class="btn btn-success" ng-class="{'active' : lang == 'en'}" ng-click="setLang('en')">ENG</span>
-        </div>
+        <a class="btn btn-success" href="#/jobs/{{ job.id }}/edit">редактировать</a>
+        <a class="btn btn-danger" href="#/jobs/{{ job.id }}/destroy">destroy</a>
     </div>
 </div>
