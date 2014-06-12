@@ -22,7 +22,6 @@
 -content_for :pathway do
   -if @page.parent
     -@parent = @page.parent.contents.find_by(lang: locale)
-  =debug @parent
   #showcase
     %span.breadcrumbs.pathway
       =link_to @home.contents.find_by(lang: locale).title, "/#{locale}", :class => "pathway"
