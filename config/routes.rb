@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   scope "(:locale)", locale: /ru|en/ do
     root 'pages#home'
+    get 'jobs' => 'pages#job'
+    get 'jobs/:tag_path' => 'pages#job_tag'
+    get 'jobs/:tag_path/:id' => 'pages#job_show'
     get ':id' => 'pages#show', :as => :page
     #get '*section/:id' => 'pages#show'
   end

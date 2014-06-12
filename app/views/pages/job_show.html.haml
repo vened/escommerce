@@ -1,0 +1,16 @@
+#Aside
+
+  %ul.menu
+    -@jobs.each do |job|
+      %li
+        =link_to "/jobs/#{job.tag_path}" do
+          %span= job.tag_text
+
+  = raw module_to(@modules, 'left')
+
+#MainCol
+  .text.clearFix
+    = raw module_to(@modules, 'top')
+    %h1= @current_job.name
+    = raw @current_job.body
+    = raw module_to(@modules, 'partners')
