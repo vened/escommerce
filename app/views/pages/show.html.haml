@@ -15,8 +15,8 @@
     = raw module_to(@modules, 'top')
     %h1= @content.title
     %p= raw @content.body
-    %p= @page.parent_path
-    = raw module_to(@modules, 'partners')
+  .MaincolModule.clearFix
+    = raw module_to(@modules, 'bottom')
 
 
 -content_for :pathway do
