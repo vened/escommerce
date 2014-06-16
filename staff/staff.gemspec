@@ -18,7 +18,8 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency 'rails', '4.1.1'
-  s.add_dependency 'pg', '~> 0.17.1'
+  #s.add_dependency 'pg', '~> 0.17.1'
+  s.add_dependency 'mysql2'
   s.add_dependency 'oj'
   s.add_dependency 'devise'
 
@@ -31,5 +32,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'codemirror-rails', '~> 4.2'
 
 
-  s.add_development_dependency 'pg', '~> 0.17.1'
+  #s.add_development_dependency 'pg', '~> 0.17.1'
+  s.add_development_dependency 'mysql2'
 end
