@@ -26,7 +26,11 @@ class PagesController < ApplicationController
       @content = @page.contents.find_by(lang: locale)
     end
     @modules = @page.html_modules
-    @children = @page.children
+    if @page.depth > 0
+      @children = @page.self_and_siblings
+    else
+      @children = @page.children
+    end
   end
 
 
