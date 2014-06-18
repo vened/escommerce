@@ -10,7 +10,6 @@
 
 #MainCol
   .text.clearFix
-    = raw module_to(@modules, 'top')
     %h1= @current_job.name
     = raw @current_job.body
     = raw module_to(@modules, 'partners')

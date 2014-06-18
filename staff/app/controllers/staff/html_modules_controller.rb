@@ -4,7 +4,7 @@ module Staff
     before_action :set_module, only: [:show, :edit, :destroy, :link, :unlink]
 
     def index
-      @html_modules = HtmlModule.all
+      @html_modules = HtmlModule.all.order(name: :asc)
       render :json => Oj.dump(@html_modules, mode: :compat)
     end
 

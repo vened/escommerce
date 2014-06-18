@@ -1,20 +1,20 @@
 
 #Aside
 
-  %ul.menu
-    -@children.each do |child|
-      -if content = child.contents.find_by(lang: locale)
-        %li
-          =link_to child.slug do
-            %span= content.title
+  -if @children.length > 0
+    %ul.menu
+      -@children.each do |child|
+        -if content = child.contents.find_by(lang: locale)
+          %li
+            =link_to child.slug do
+              %span= content.title
 
   = raw module_to(@modules, 'page_left')
 
 #MainCol
   .text.clearFix
-    = raw module_to(@modules, 'page_top')
     -#%h1= @content.title
-    %p= raw @content.body
+    = raw @content.body
   = raw module_to(@modules, 'page_button_1')
   .MaincolModule.clearFix
     = raw module_to(@modules, 'page_button')
@@ -32,4 +32,7 @@
         |
       =@content.title
 
+
+-content_for :title do
+  = @content.title
 

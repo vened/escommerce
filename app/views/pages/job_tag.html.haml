@@ -11,7 +11,6 @@
 
 #MainCol
   .text.clearFix
-    = raw module_to(@modules, 'top')
     %h1= @current_jobs.first.tag_text
     -@current_jobs.each do |job|
       %dl.contentitem

@@ -11,9 +11,7 @@
 
 #MainCol
   .text.clearFix
-    = raw module_to(@modules, 'top')
-    %h1= @content.title
-    %p= raw @content.body
+    = raw @content.body
     = raw module_to(@modules, 'partners')
 
 

@@ -2,15 +2,15 @@ class PagesController < ApplicationController
   before_action :set_page, only: [:index, :show, :job]
   before_action :set_jobs, only: [:job, :job_tag, :job_show]
 
-  def index
-    #if params[:locale]
-    #  curent_lang = params[:locale]
-    #else
-    #  curent_lang = locale
-    #end
-    #logger.info "locale ------------------------- #{curent_lang}"
-    @pages = Page.all.where(lang: I18n.locale)
-  end
+  #def index
+  #  #if params[:locale]
+  #  #  curent_lang = params[:locale]
+  #  #else
+  #  #  curent_lang = locale
+  #  #end
+  #  #logger.info "locale ------------------------- #{curent_lang}"
+  #  @pages = Page.all.where(lang: I18n.locale)
+  #end
 
 
   def home
