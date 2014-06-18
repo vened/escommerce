@@ -36,4 +36,4 @@ test:
 
 production:
   <<: *default
-  database: hrtsm_production
+  database: hrtsm_development
