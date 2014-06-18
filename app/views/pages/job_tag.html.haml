@@ -16,7 +16,10 @@
       %dl.contentitem
         %dt
           =link_to job.name,"/jobs/#{job.tag_path}/#{job.id}"
-    = raw module_to(@modules, 'partners')
+
+  .clearFix
+    = raw module_to(@modules, 'page_button_2')
+
 
 
 
@@ -28,3 +31,7 @@
       =link_to "Вакансии", "/jobs/", :class => "pathway"
       |
       =@current_jobs.first.tag_text
+
+
+-content_for :title do
+  =@current_jobs.first.tag_text

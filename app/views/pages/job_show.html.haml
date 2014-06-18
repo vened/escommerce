@@ -14,6 +14,9 @@
     = raw @current_job.body
     = raw module_to(@modules, 'partners')
 
+  .clearFix
+    = raw module_to(@modules, 'page_button_2')
+
 
 
 -content_for :pathway do
@@ -26,3 +29,6 @@
       =link_to @current_job.tag_text, "/jobs/#{@current_job.tag_path}", :class => "pathway"
       |
       =@current_job.name
+
+-content_for :title do
+  =@current_job.name

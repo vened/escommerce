@@ -21,3 +21,6 @@
       =link_to @home.contents.find_by(lang: locale).title, "/#{locale}", :class => "pathway"
       |
       Вакансии
+
+-content_for :title do
+  = @content.title

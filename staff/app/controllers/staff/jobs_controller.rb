@@ -4,7 +4,7 @@ module Staff
     before_action :set_job, only: [:show, :destroy, :update]
 
     def index
-      @jobs = Job.all
+      @jobs = Job.all.order(tag_path: :asc)
       render :json => Oj.dump(@jobs, mode: :compat)
     end
 
