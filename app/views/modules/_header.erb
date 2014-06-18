@@ -11,15 +11,13 @@
       allowfullscreen="false" allowscriptaccess="sameDomain" name="logo" bgcolor="#ffffff" wmode="transparent" quality="high" src="/assets/logo.swf">
     </object>
     <%= link_to '', "/#{locale}" %>
-    <!--<a href="/"></a>-->
-    <!--<a title="Перейти к поздравлению" style="position: relative;top: -5px;" href="/ru/happy-new-year"><img src="http://www.hrtsm.ru/images/start/happy-new-year.gif"></a>-->
   </div>
 
   <div id="nav">
     <div class="mb15 clearFix">
       <div class="Links clearFix">
         <a href="/ru" class="home"></a>
-        <a href="/ru/sitemap" class="sitemap"></a>
+        <!--<a href="/ru/sitemap" class="sitemap"></a>-->
         <a href="mailto:info@hrtsm.ru" class="email"></a>
       </div>
       <div class="LangSwith">
@@ -27,13 +25,9 @@
         <i>|</i>
         <a href="/en/">Eng</a>
       </div>
-      <!--<a class="ml30" style="color: #8E29AD;" target="_blank" href="/new-year.html"><b><i>Поздравляем Вас с Новым Годом!!!</i></b></a>-->
 
-      <div class="social">
-        <p>Мы в соцсетях: <a target="_blank" href="http://www.facebook.com/pages/HR-Center-TSM/199365003433472" class="fb">Facebook</a>
-          <a target="_blank" href="http://twitter.com/#!/hrctsm" class="tw">Twitter</a> <!--<a class="lj" href="#" mce_href="#">Livejournal</a>-->
-        </p>
-      </div>
+      <%= raw module_to(@modules, 'header') %>
+
     </div>
     <%= render_cell :main_menu, :show %>
 

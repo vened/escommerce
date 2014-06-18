@@ -8,15 +8,16 @@
           =link_to child.slug do
             %span= content.title
 
-  = raw module_to(@modules, 'left')
+  = raw module_to(@modules, 'page_left')
 
 #MainCol
   .text.clearFix
-    = raw module_to(@modules, 'top')
-    %h1= @content.title
+    = raw module_to(@modules, 'page_top')
+    -#%h1= @content.title
     %p= raw @content.body
+  = raw module_to(@modules, 'page_button_1')
   .MaincolModule.clearFix
-    = raw module_to(@modules, 'bottom')
+    = raw module_to(@modules, 'page_button')
 
 
 -content_for :pathway do
@@ -27,7 +28,7 @@
       =link_to @home.contents.find_by(lang: locale).title, "/#{locale}", :class => "pathway"
       |
       -if @parent
-        =link_to @parent.title, "/#{locale}/#{@page.slug}", :class => "pathway"
+        =link_to @parent.title, "/#{locale}/#{@page.parent.slug}", :class => "pathway"
         |
       =@content.title
 

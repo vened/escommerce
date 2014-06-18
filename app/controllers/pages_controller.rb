@@ -14,6 +14,7 @@ class PagesController < ApplicationController
 
 
   def home
+    @root = true
     @page = Page.where(path: 'home').take
     @modules = @page.html_modules
   end
