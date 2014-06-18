@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   scope "(:locale)", locale: /ru|en/ do
     root 'pages#home'
+    #get '/jobs/profile' => 'form#profile'
     get 'jobs' => 'pages#job'
     get 'jobs/:tag_path' => 'pages#job_tag'
     get 'jobs/:tag_path/:id' => 'pages#job_show'
