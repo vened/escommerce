@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 8) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 9) do
 
   create_table "contents", force: true do |t|
     t.integer "page_id"
@@ -24,6 +21,24 @@ ActiveRecord::Schema.define(version: 8) do
   end
 
   add_index "contents", ["page_id"], name: "index_contents_on_page_id", using: :btree
+
+  create_table "forms", force: true do |t|
+    t.string   "vacancy"
+    t.string   "username"
+    t.string   "birth"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "education"
+    t.string   "referencer"
+    t.string   "file"
+    t.string   "photo"
+    t.text     "text1"
+    t.text     "text2"
+    t.text     "text3"
+    t.text     "text4"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "html_module_languages", force: true do |t|
     t.integer "html_module_id"

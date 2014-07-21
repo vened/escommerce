@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get 'jobs' => 'pages#job'
     get 'jobs/:tag_path' => 'pages#job_tag'
     get 'jobs/:tag_path/:id' => 'pages#job_show'
+    # get 'about/news' => 'news#index'
     get ':id' => 'pages#show', :as => :page
     #get '*section/:id' => 'pages#show'
   end

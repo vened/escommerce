@@ -20,8 +20,7 @@ default: &default
   username: volare
   password: qwerty
   host: localhost
-  socket: /var/run/mysqld/mysqld.sock
-
+  #socket:/var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
