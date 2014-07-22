@@ -1,0 +1,21 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2 class="panel-title">Добавление/редактирование новости</h2>
+    </div>
+    <form role="form" action="">
+        <div class="panel-body">
+            <div class="form-group">
+                <label for="name">Заголовок новости</label>
+                <input type="text" class="form-control" id="name" name="postTitle" ng-model="post.title">
+            </div>
+            <div class="form-group">
+                <label>Описание</label>
+
+                <div text-angular ng-model="post.body"></div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-primary" ng-click="Create()">Сохранить</button>
+        </div>
+    </form>
+</div>

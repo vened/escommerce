@@ -1,0 +1,32 @@
+<div class="row pagesHead">
+    <div class="col-xs-8">
+        <h2>Новости</h2>
+    </div>
+    <div class="col-xs-4 text-right">
+        <a href="#/posts/new" class="btn btn-primary">Добавить новость</a>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Заголовок новости</th>
+            <th>Текст</th>
+            <th>Иллюстрация</th>
+            <th>Управление</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="post in posts">
+            <td><a href="#/posts/{{ post.id }}">{{ post.title }}</a></td>
+            <td>{{ post.body }}</td>
+            <td>{{ post.photo }}</td>
+            <td>
+                <a class="btn btn-success" href="#/posts/{{ post.id }}/edit">редактировать</a>
+                <a class="btn btn-danger" href="#/posts/{{ post.id }}/destroy">удалить</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

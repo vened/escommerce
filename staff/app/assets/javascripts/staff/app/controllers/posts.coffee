@@ -1,11 +1,11 @@
 (->
   "use strict"
 
-  ctrl = angular.module("JobsController", [])
+  ctrl = angular.module("PostsController", [])
 
-  ctrl.controller 'JobsIndexCtrl', ["$scope", "$routeParams", "Job", JobsIndexCtrl = ($scope, $routeParams, Job) ->
-    Job.all().success (res) ->
-      $scope.jobs = res
+  ctrl.controller 'PostsIndexCtrl', ["$scope", "$routeParams", "Post", PostsIndexCtrl = ($scope, $routeParams, Post) ->
+    Post.all().success (res) ->
+      $scope.posts = res
       return
     return
   ]
@@ -17,14 +17,10 @@
     return
   ]
 
-  ctrl.controller 'JobsNewCtrl', ["$scope", "$location", "Job", "TransliterateService", JobsNewCtrl = ($scope, $location, Job, TransliterateService) ->
-    $scope.$watch "job.tag_text", (val) ->
-      return if val is undefined
-      $scope.job.tag_path = TransliterateService(val)
-      return
-    $scope.jobSend = ->
-      Job.create($scope.job).success () ->
-        $location.path "/jobs/"
+  ctrl.controller 'PostsNewCtrl', ["$scope", "$location", "Post", PostsNewCtrl = ($scope, $location, Post) ->
+    $scope.Create = ->
+      Post.create($scope.post).success () ->
+        $location.path "/posts/"
         return
     return
   ]

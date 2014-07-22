@@ -27,7 +27,7 @@
 //= require staff/app/services
 //= require staff/app/services/pages
 //= require staff/app/services/html_modules
-//= require staff/app/services/jobs
+//= require staff/app/services/posts
 
 // require derectives
 //= require staff/app/directives/root
@@ -37,4 +37,4 @@
 //= require staff/app/controllers/pages
 //= require staff/app/controllers/html_modules
 //= require staff/app/controllers/dashboard
-//= require staff/app/controllers/jobs
+//= require staff/app/controllers/posts
