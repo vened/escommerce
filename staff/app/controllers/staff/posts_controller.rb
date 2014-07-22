@@ -9,7 +9,7 @@ module Staff
     end
 
     def show
-      render :json => Oj.dump(@job, mode: :compat)
+      render :json => Oj.dump(@post, mode: :compat)
     end
 
     def create
@@ -32,7 +32,7 @@ module Staff
 
 
     def destroy
-      if @job.destroy
+      if @post.destroy
         render :json => {'d' => 1}
       else
         render :json => {'d' => 0}

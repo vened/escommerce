@@ -10,9 +10,9 @@
     return
   ]
 
-  ctrl.controller 'JobsShowCtrl', ["$scope", "$routeParams", "Job", JobsShowCtrl = ($scope, $routeParams, Job) ->
-    Job.find($routeParams.id).success (res) ->
-      $scope.job = res
+  ctrl.controller 'PostsShowCtrl', ["$scope", "$routeParams", "Post", PostsShowCtrl = ($scope, $routeParams, Post) ->
+    Post.find($routeParams.id).success (res) ->
+      $scope.post = res
       return
     return
   ]
@@ -25,23 +25,23 @@
     return
   ]
 
-  ctrl.controller 'JobsEditCtrl', ["$scope", "$routeParams", "Job", "$location", JobsEditCtrl = ($scope, $routeParams, Job, $location) ->
+  ctrl.controller 'PostsEditCtrl', ["$scope", "$routeParams", "Job", "$location", PostsEditCtrl = ($scope, $routeParams, Job, $location) ->
     Job.find($routeParams.id).success (res) ->
       $scope.job = res
       return
     $scope.jobSend = ->
       Job.edit($scope.job.id, $scope.job).success (res) ->
-        $location.path "/jobs/"
+        $location.path "/posts/"
         return
     return
   ]
 
 
 
-  ctrl.controller 'JobsDestroyCtrl', ["$scope", "$routeParams", "Job", "$location", JobsDestroyCtrl = ($scope, $routeParams, Job, $location) ->
+  ctrl.controller 'PostsDestroyCtrl', ["$scope", "$routeParams", "Post", "$location", PostsDestroyCtrl = ($scope, $routeParams, Post, $location) ->
     $scope.destroy = () ->
-      Job.destroy($routeParams.id).success ->
-        $location.path "/jobs/"
+      Post.destroy($routeParams.id).success ->
+        $location.path "/posts/"
         return
     return
   ]
