@@ -74,7 +74,7 @@ routes.config ($routeProvider) ->
       controller: 'JobsDestroyCtrl',
       templateUrl: '/assets/staff/app/views/jobs/destroy.html'
     )
-
+  
 
   .otherwise(
       redirectTo: '/'

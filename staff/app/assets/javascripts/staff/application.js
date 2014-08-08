@@ -20,8 +20,9 @@
 //= require ./libs/text-angular
 //= require ./libs/ui-code-mirror
 
-//= require staff/app/app
-//= require staff/app/routes
+//= require staff/app
+//= require staff/routes
+//= require staff/components/user/user
 
 // require services
 //= require staff/app/services

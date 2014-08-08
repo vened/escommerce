@@ -5,18 +5,26 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-5.times do |i|
-  Page.create(title: "Page #{i}",
-              path: "page-#{i}",
-              body: "This file should contain all the record creation needed to seed the database with its default values."
-  )
-  HtmlModule.create(title: "Module #{i}",
-                    name: "module-#{i}",
-                    body: "Module body"
-  )
-end
+# 5.times do |i|
+#   Page.create(title: "Page #{i}",
+#               path: "page-#{i}",
+#               body: "This file should contain all the record creation needed to seed the database with its default values."
+#   )
+#   HtmlModule.create(title: "Module #{i}",
+#                     name: "module-#{i}",
+#                     body: "Module body"
+#   )
+# end
+# 
+# 
+# @page = Page.last(1)
+# @html_module = HtmlModule.last(1)
+# @html_module.pages = @html_module
 
 
-@page = Page.last(1)
-@html_module = HtmlModule.last(1)
-@html_module.pages = @html_module
+#создание администратора, пароль потом обязательно надо сбросить
+admin = Staff::Admin.new
+admin.email = 'admin@admin.com'
+admin.password = "qwerty123"
+admin.password_confirmation = "qwerty123"
+admin.save!

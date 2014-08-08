@@ -1,0 +1,35 @@
+<div class="row pagesHead">
+	<div class="col-xs-8">
+		<h2>Список пользователей</h2>
+	</div>
+	<div class="col-xs-4 text-right">
+		<a class="btn btn-primary" href="#/users/new">Добавить пользователя</a>
+	</div>
+</div>
+
+
+<div class="table-responsive">
+	<table class="table table-bordered">
+		<thead>
+		<tr>
+			<th>#</th>
+			<th>Имя пользователя</th>
+			<th>email</th>
+			<th>Роль</th>
+			<th>Действия</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="user in users">
+			<td>{{ user.id }}</td>
+			<td>{{ user.name }}</td>
+			<td>{{ user.email }}</td>
+			<td>{{ user.role }}</td>
+			<td>
+				<a class="btn btn-success" href="#/users/{{ user.id }}/edit">редактировать</a>
+				<a class="btn btn-danger" href="#/users/{{ user.id }}/destroy">destroy</a>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+</div>

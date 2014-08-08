@@ -1,6 +1,6 @@
 module Staff
   class PagesController < ApplicationController
-    before_action :authenticate_admin!
+    # before_action :authenticate_admin!
     before_action :set_page, only: [:show, :edit, :destroy]
 
     def dashboard

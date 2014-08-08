@@ -1,6 +1,6 @@
 module Staff
   class JobsController < ApplicationController
-    before_action :authenticate_admin!
+    # before_action :authenticate_admin!
     before_action :set_job, only: [:show, :destroy, :update]
 
     def index

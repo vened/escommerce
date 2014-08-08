@@ -7,7 +7,6 @@ Staff::Engine.routes.draw do
       :controllers => {:sessions => "staff/sessions"}
   }
 
-
   root to: 'pages#dashboard'
 
   get 'pages/:id/:lang' => 'pages#show'
@@ -21,6 +20,8 @@ Staff::Engine.routes.draw do
   resources :pages
   resources :html_modules
   resources :jobs
+  resources :users
+  match '/signup', to: 'users#new', via: 'get'
 
   put 'html_modules/link/:id/:page_id' => 'html_modules#link'
   put 'html_modules/unlink/:id/:page_id' => 'html_modules#unlink'

@@ -7,10 +7,17 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 # ToDo:: реализовать автозагрузку пользователей
 
-admin = Staff::Admin.new(
-    :email                 => "admin@admin.com",
-    :password              => "qwerty123",
-    :password_confirmation => "qwerty123"
-)
-admin.skip_confirmation!
-admin.save!
+# admin = Staff::Admin.new
+# admin.email = 'admin@admin.com'
+# admin.password = "qwerty123"
+# admin.password_confirmation => "qwerty123"
+# admin.save!
+
+# 
+# admin = Staff::Admin.new(
+#     :email                 => "admin@admin.com",
+#     :password              => "qwerty123",
+#     :password_confirmation => "qwerty123"
+# )
+# admin.skip_confirmation!
+# admin.save!

@@ -1,0 +1,14 @@
+%h2 edit users
+
+= form_for @admin, :url => { :action => "update" } do |f|
+  .form-group
+    = f.label :password, "Password"
+    = f.password_field :password, :autocomplete => "off", :class => "form-control"
+  .form-group
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation, :class => "form-control"
+  .action_container
+    = f.submit
+
+
+=debug @admin

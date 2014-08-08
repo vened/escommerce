@@ -6,6 +6,8 @@ gem 'rails', '4.1.1'
 gem 'mysql2'
 gem 'awesome_nested_set', '~> 3.0.0.rc.5'
 gem 'cells', '~> 3.11.1'
+gem 'bcrypt-ruby', '3.1.2'
+gem 'rails-i18n'
 
 
 # optimized json

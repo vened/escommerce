@@ -1,6 +1,6 @@
 module Staff
   class HtmlModulesController < ApplicationController
-    before_action :authenticate_admin!
+    # before_action :authenticate_admin!
     before_action :set_module, only: [:show, :edit, :destroy, :link, :unlink]
 
     def index

@@ -9,6 +9,10 @@
     "textAngular"
     "ui.codemirror"
 
+
+    "userComponent"
+
+
     "PagesCommon"
     "HtmlModulesCommon"
     "HelpersServices"
@@ -22,5 +26,5 @@
     "HtmlModulesIndexController"
     "JobsController"
   ])
-  
+
   return)()
